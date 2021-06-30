@@ -10,11 +10,13 @@ import Contact from "./components/contact/Contact";
 import Terminal from "./components/terminal/Terminal";
 
 function App() {
-    const [isTerminalVisible, setIsTerminalVisible] = useState(false);
+
+    const showTerm: boolean = new URLSearchParams(window.location.search).get("showTerm") === 'true';
+    const [isTerminalVisible, setIsTerminalVisible] = useState(showTerm);
 
     return (
         <div className="App">
-            <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>
+            {showTerm && <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>}
             {!isTerminalVisible &&
                 <div>
                     <Hero/>
