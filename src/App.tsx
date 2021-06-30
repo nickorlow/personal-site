@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Footer from "./components/footer/Footer";
+import Hero from "./components/hero/Hero";
+import AboutMe from "./components/about-me/AboutMe";
+import Jobs from "./components/jobs/Jobs";
+import Projects from "./components/projects/Projects";
+import Hobbies from "./components/hobbies/Hobbies";
+import Contact from "./components/contact/Contact";
+import Terminal from "./components/terminal/Terminal";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isTerminalVisible, setIsTerminalVisible] = useState(false);
+
+    return (
+        <div className="App">
+            <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>
+            {!isTerminalVisible &&
+                <div>
+                    <Hero/>
+                    <AboutMe/>
+                    <Jobs/>
+                    <Projects/>
+                    <Hobbies/>
+                    <Contact/>
+                    <Footer/>
+                </div>
+            }
+        </div>
+      );
 }
 
 export default App;
