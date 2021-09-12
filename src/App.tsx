@@ -8,6 +8,12 @@ import Projects from "./components/projects/Projects";
 import Hobbies from "./components/hobbies/Hobbies";
 import Contact from "./components/contact/Contact";
 import Terminal from "./components/terminal/Terminal";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 function App() {
 
@@ -15,20 +21,24 @@ function App() {
     const [isTerminalVisible, setIsTerminalVisible] = useState(showTerm);
 
     return (
-        <div className="App">
-            {showTerm && <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>}
-            {!isTerminalVisible &&
-                <div>
-                    <Hero/>
-                    <AboutMe/>
-                    <Jobs/>
-                    <Projects/>
-                    <Hobbies/>
-                    <Contact/>
-                    <Footer/>
+        <Router basename={'/~nickorlo'}>
+            <Route path='*'>
+                <div className="App">
+                    {showTerm && <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>}
+                    {!isTerminalVisible &&
+                        <div>
+                            <Hero/>
+                            <AboutMe/>
+                            <Jobs/>
+                            <Projects/>
+                            <Hobbies/>
+                            <Contact/>
+                            <Footer/>
+                        </div>
+                    }
                 </div>
-            }
-        </div>
+            </Route>
+        </Router>
       );
 }
 
