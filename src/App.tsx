@@ -8,6 +8,11 @@ import Projects from "./components/projects/Projects";
 import Hobbies from "./components/hobbies/Hobbies";
 import Contact from "./components/contact/Contact";
 import Terminal from "./components/terminal/Terminal";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom';
 
 function App() {
 
@@ -16,18 +21,26 @@ function App() {
 
     return (
         <div className="App">
-            {showTerm && <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>}
-            {!isTerminalVisible &&
-                <div>
-                    <Hero/>
-                    <AboutMe/>
-                    <Jobs/>
-                    <Projects/>
-                    <Hobbies/>
-                    <Contact/>
-                    <Footer/>
-                </div>
-            }
+            <Router>
+                <Switch>
+                    <Route path='/' exact={true}>
+                        {showTerm && <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>}
+                        {!isTerminalVisible &&
+                            <div>
+                                <Hero/>
+                                <AboutMe/>
+                                <Jobs/>
+                                <Projects/>
+                                <Hobbies/>
+                                <Contact/>
+                                <Footer/>
+                            </div>
+                        }
+                    </Route>
+                    <Route path='/privacy' exact={true}>
+                    </Route>
+                </Switch>
+            </Router>
         </div>
       );
 }

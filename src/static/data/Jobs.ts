@@ -2,6 +2,7 @@ import Job from "../../types/Job";
 import VrboImage from "../images/vrbo-logo-min.png";
 import CavImage from "../images/cavcash-logo-min.png";
 import ChicksImage from "../images/chicks-logo.svg";
+import CompImage from "../images/compwallet-logo.png";
 
 const VrboJob: Job = {
     title: "Data Scientist",
@@ -19,15 +20,13 @@ const VrboJob: Job = {
 
 const CavCashJob: Job = {
     title: "CEO & Software Engineer",
-    company: "CavCash Inc",
+    company: "CavCash",
     timespan: "May 2017 - Present",
     items: [
         "Founded the company",
         "Wrote a C# webAPI",
         "Managed mongoDB and MSSQL databases",
-        "Deployed and maintained k8s clusters on bare metal",
-        "Managed CI/CD & DevOps in Azure DevOps",
-        "Ran & migrated services between Azure, AWS, and GCP"
+        "Deployed and maintained k8s clusters on bare metal on in-house datacenter",
     ],
     image: CavImage
 }
@@ -36,7 +35,7 @@ const ChicksJob: Job = {
     title: "Software Engineer",
     company: "Chicks Gold",
     uri: "https://chicksgold.com",
-    timespan: "April 2021 - Present",
+    timespan: "April 2021 - October 2021",
     items: [
         "Added features & bugfixes to .NET 5 API",
         "Added features & bugfixes to Aurelia website",
@@ -46,6 +45,17 @@ const ChicksJob: Job = {
     image: ChicksImage
 }
 
+const CompWalletJob: Job = {
+    title: "Lead Software Developer",
+    company: "Casino CompWallet",
+    timespan: "October 2021 - Present",
+    items: [
+        "Work on Ruby-On-Rails API",
+        "Updated a React Native mobile app"
+    ],
+    image: CompImage
+}
 
-export const AllJobs: Job[] = [VrboJob, CavCashJob, ChicksJob];
+
+export const AllJobs: Job[] = [CompWalletJob, CavCashJob, ChicksJob, VrboJob];
 

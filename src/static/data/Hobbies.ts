@@ -10,6 +10,14 @@ const RunningHobby: InfoCardProps = {
     listClassName: "col-12"
 }
 
+const Listing: InfoCardProps = {
+    title: "Lifting",
+    description: "Began lifting when I got into college. (TODO: add more before publishing)",
+    listTitle: "Personal Records",
+    list:["Bench - 200lbs", "Squat - 305lbs"],
+    listClassName: "col-12"
+}
+
 const VideogameHobby: InfoCardProps = {
     title: "Video Games",
     description: "Video games are what got me interested in programming in the first place. I tend to play them a lot less now in favor of programming though, I'll occasionally sink a couple hours into a game.",
