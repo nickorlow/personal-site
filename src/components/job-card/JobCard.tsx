@@ -6,8 +6,10 @@ import "./JobCard.css";
 export default function JobCard(props: {style?: any, className?: string, job: Job}){
     return (
         <ScrollAnimation className={"job-card "+(props.className || "")} style={props.style} animateIn="fade-up" duration={2} animateOnce={true} offset={50} delay={200}>
-            <div className={"row"} style={{padding: 20}}>
-                <img className={"col-md-4"} alt={props.job.company+" company logo"} src={props.job.image} style={{objectFit: "contain" ,maxHeight: 70, padding: 10,width: "auto", maxWidth: "100%"}}/>
+            <div className={"row"} style={{paddingTop: 40}}>
+                <div  className={"col-md-4"}>
+                    <img className={"float-left float-md-none"} alt={props.job.company+" company logo"} src={props.job.image} style={{paddingLeft: 20, objectFit: "contain" ,height: "auto", maxWidth: 300}}/>
+                </div>
                 <div className={"col-md-8 row"}>
                     <div className={"col-md-6 text-left"}>
                         <h2>{props.job.title}</h2>
