@@ -14,7 +14,7 @@ const Listing: InfoCardProps = {
     title: "Lifting",
     description: "Began lifting when I got into college. (TODO: add more before publishing)",
     listTitle: "Personal Records",
-    list:["Bench - 200lbs", "Squat - 305lbs"],
+    list:["Bench - 215lbs (EOY Goal: 250)", "Squat - 315lbs (10 reps)"],
     listClassName: "col-12"
 }
 
