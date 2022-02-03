@@ -10,11 +10,11 @@ const RunningHobby: InfoCardProps = {
     listClassName: "col-12"
 }
 
-const Listing: InfoCardProps = {
+const Lifting: InfoCardProps = {
     title: "Lifting",
-    description: "Began lifting when I got into college. (TODO: add more before publishing)",
+    description: "Began lifting when I got into college.",
     listTitle: "Personal Records",
-    list:["Bench - 200lbs", "Squat - 305lbs"],
+    list:["Bench - 235lbs", "Squat - 345lbs"],
     listClassName: "col-12"
 }
 
@@ -25,5 +25,5 @@ const VideogameHobby: InfoCardProps = {
     list: ["Galaga", "Clone Hero", "Minecraft"]
 }
 
-export const AllHobbies: InfoCardProps[] = [RunningHobby, VideogameHobby];
+export const AllHobbies: InfoCardProps[] = [RunningHobby, Lifting];
 

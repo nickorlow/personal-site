@@ -9,6 +9,15 @@ const WebsiteProject: InfoCardProps = {
     linkTitle: "GitHub Repo"
 }
 
+const RoomyProject: InfoCardProps = {
+    title: "roomy-sentry",
+    description: "Built software to monitor the presence of a person based on sniffing the wi-fi packets of their mobile devices. Practically used in order to tell if my roommate is home.",
+    listTitle: "Technologies Used",
+    list: ["C#", ".NET 6", "NoSQL", "Docker", "nginx", "React Native", "Cloudflare"],
+    link: "https://github.com/nickorlow/roomy-sentry",
+    linkTitle: "Github Repository"
+}
+
 const CavCashProject: InfoCardProps = {
     title: "cavcash",
     description: "CavCash started as a project in 2017 as a way to pay with flashdrives. After recruiting a few friends to help me, we build ourselves into a PayPal competitor but shutdown due to funding. I continued to re-write the platform as a cryptocurrency.",
@@ -36,5 +45,5 @@ const SPONODEProject: InfoCardProps = {
     linkTitle: "GitHub Repo"
 }
 
-export const AllProjects: InfoCardProps[] = [WebsiteProject, CavCashProject, XenMapProject, SPONODEProject];
+export const AllProjects: InfoCardProps[] = [WebsiteProject, RoomyProject, XenMapProject, SPONODEProject];
 

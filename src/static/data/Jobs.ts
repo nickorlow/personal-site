@@ -1,7 +1,7 @@
 import Job from "../../types/Job";
 import VrboImage from "../images/vrbo-logo-min.png";
 import CavImage from "../images/cavcash-logo-min.png";
-import ChicksImage from "../images/chicks-logo.svg";
+import ChicksImage from "../images/chicks-logo.png";
 import CompImage from "../images/compwallet-logo.png";
 
 const VrboJob: Job = {
@@ -50,8 +50,9 @@ const CompWalletJob: Job = {
     company: "Casino CompWallet",
     timespan: "October 2021 - Present",
     items: [
+        "Architected & built in-house advertising platform",
         "Work on Ruby-On-Rails API",
-        "Updated a React Native mobile app"
+        "Updated a React Native mobile app used with ~15,000 users"
     ],
     image: CompImage
 }
