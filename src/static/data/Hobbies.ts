@@ -14,7 +14,7 @@ const Lifting: InfoCardProps = {
     title: "Lifting",
     description: "Began lifting when I got into college.",
     listTitle: "Personal Records",
-    list:["Bench - 235lbs", "Squat - 345lbs"],
+    list:["Bench - 235lbs", "Squat - 345lbs", "Deadlift - 345lbs (I think)"],
     listClassName: "col-12"
 }
 
