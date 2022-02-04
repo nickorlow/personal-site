@@ -21,7 +21,7 @@ const VrboJob: Job = {
 const CavCashJob: Job = {
     title: "CEO & Software Engineer",
     company: "CavCash",
-    timespan: "May 2017 - Present",
+    timespan: "May 2017 - April 2021",
     items: [
         "Founded the company",
         "Wrote a C# webAPI",
@@ -46,7 +46,7 @@ const ChicksJob: Job = {
 }
 
 const CompWalletJob: Job = {
-    title: "Lead Software Developer",
+    title: "Chief Technology Officer",
     company: "Casino CompWallet",
     timespan: "October 2021 - Present",
     items: [
