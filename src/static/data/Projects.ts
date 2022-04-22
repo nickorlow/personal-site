@@ -2,11 +2,20 @@ import InfoCardProps from "../../types/InfoCardProps";
 
 const WebsiteProject: InfoCardProps = {
     title: "personal-site (this website)",
-    description: "As a primairly backend guy, I wrote my last website as a JSON file (imatating a webAPI). Feedback showed that that was a bad idea so I made this pretty neat site (in my opinion). If you like it, feel free to use it yourself!",
+    description: "As a primairly backend guy, I wrote my last website as a JSON file (imatating a webAPI). Feedback showed that that was a bad idea so I made this pretty neat site (in my opinion). If you like it, feel free to use it yourself! The backend is run in a homemade datacenter (a few Dell Poweredges on a rack) running on Kubernetes.",
     listTitle: "Technologies & Resources used",
     list:["React", "Typescript", "Bootstrap", "Icons8", "Docker", "Kubernetes"],
     link: "https://github.com/nickorlow/personal-site",
     linkTitle: "GitHub Repo"
+}
+
+const RoomyProject: InfoCardProps = {
+    title: "roomy-sentry",
+    description: "Built software to monitor the presence of a person based on sniffing the wi-fi packets of their mobile devices. Practically used in order to tell if my roommate is home.",
+    listTitle: "Technologies Used",
+    list: ["C#", ".NET 6", "NoSQL", "Docker", "nginx", "React Native", "Cloudflare"],
+    link: "https://github.com/nickorlow/roomy-sentry",
+    linkTitle: "Github Repository"
 }
 
 const CavCashProject: InfoCardProps = {
@@ -36,5 +45,5 @@ const SPONODEProject: InfoCardProps = {
     linkTitle: "GitHub Repo"
 }
 
-export const AllProjects: InfoCardProps[] = [WebsiteProject, CavCashProject, XenMapProject, SPONODEProject];
+export const AllProjects: InfoCardProps[] = [WebsiteProject, RoomyProject, XenMapProject, SPONODEProject];
 

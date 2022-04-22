@@ -10,6 +10,14 @@ const RunningHobby: InfoCardProps = {
     listClassName: "col-12"
 }
 
+const Lifting: InfoCardProps = {
+    title: "Lifting",
+    description: "Once I was done with cross country, I was so used to working out everyday, I just couldn't stop. I started lifting as a break from my 6 years and 10,000 miles of running and really really liked it.",
+    listTitle: "Personal Records",
+    list:["Bench - 235lbs", "Squat - 345lbs", "Deadlift - 345lbs (I think)"],
+    listClassName: "col-12"
+}
+
 const VideogameHobby: InfoCardProps = {
     title: "Video Games",
     description: "Video games are what got me interested in programming in the first place. I tend to play them a lot less now in favor of programming though, I'll occasionally sink a couple hours into a game.",
@@ -17,5 +25,5 @@ const VideogameHobby: InfoCardProps = {
     list: ["Galaga", "Clone Hero", "Minecraft"]
 }
 
-export const AllHobbies: InfoCardProps[] = [RunningHobby, VideogameHobby];
+export const AllHobbies: InfoCardProps[] = [RunningHobby, Lifting];
 

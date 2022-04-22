@@ -13,7 +13,7 @@ export default function Hero() {
                 flexDirection: "column",
                 alignItems: "center"
             }}>
-                <img alt="github profile" src={"https://avatars.githubusercontent.com/u/85139485?v=4"}
+                <img alt="github profile picture" src={"https://avatars.githubusercontent.com/u/56371027?v=4"}
                      style={{height: "30vh", width: "auto"}} className={"pfp"}/>
                 <h1 className={"m-0 font-weight-bold"}>Nicholas Orlowsky</h1>
                 <h4 className={"m-0"}>Software Engineer</h4>

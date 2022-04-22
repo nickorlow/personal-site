@@ -13,8 +13,7 @@ export default function AboutMe() {
                 <div className={"col-12"} style={{width: "100vw", justifyContent: "center", display: "flex"}}>
                     <p className={"col-12"} style={{maxWidth: 600}}>
                         I was born and raised in Austin, Texas. I've been writing code for nearly 7 years and I'm
-                        currently going to <b>The University of Texas at Austin</b> and working as a <b>Software
-                        Engineer</b> at <b>Chicks Gold</b>.
+                        currently going to <b>The University of Texas at Austin</b> and working as the <b>Chief Technology Officer</b> at <b>Comp Wallet Corp.</b>
                     </p>
                 </div>
 
