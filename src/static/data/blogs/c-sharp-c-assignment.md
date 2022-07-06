@@ -1,4 +1,3 @@
-# Doing C assignments in C#
 
 Thanks to Arpan Dhatt for doing most of the work on this (his blog here: [https://arpan.one/posts/messing-with-gradescope/](https://arpan.one/posts/messing-with-gradescope/))
 
@@ -11,25 +10,18 @@ This makes running assignments in a docker container where the runtime is not al
 
 The better solution is to use .NET's (experimental) AOT compilation feature (formerly called CoreRT). C# has had a number of attempts at an AOT compiler such as :
 
-- List
-- LLD2CPP built by Unity
+ - [AOT](https://www.mono-project.com/docs/advanced/aot/) by Mono
+ - LLD2CPP built by Unity
+ - [Ready2Run](https://docs.microsoft.com/en-us/dotnet/core/deploying/ready-to-run) by Microsoft
 
-We'll be using the official AOT compilation built by Microsoft. In order to use it, all you have to do is add the following to your `nuget.config`:
-```xaml
+We'll be using the official Ready2Run AOT compilation built by Microsoft. In order to use it, all you have to do is add the following to your `nuget.config`:
+```xml
 <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />  
 ```
 and then install the package: `Microsoft.DotNet.ILCompiler`. After doing that if you run the command: `dotnet publish -r [Runtime] -c [Config]` and after waiting a considerable amount of time, you'll have a full-fledged C# application compiled directly to your target runtime's bytecode!
 
 Compiling my simple Hello, Wold test to linux-x64 (`dotnet publish -r linux-x64 -c Release`) and adding it to my project files should let me run it using the same method Arpan used in his blog.
 
-But running that command gives this beautiful error: 
-`Cross-OS native compilation is not supported. https://github.com/dotnet/corert/issues/5458 [.../CSharpAOTCompilation/CSharpAOTCompilation/CSharpAOTCompilation.csproj]`
-
-This (unfortunately) means that I need to either find a Linux machine to run this on or spin up a docker container to compile it for me. Luckily, I'm pretty good with docker and was able to spin this Dockerfile up relatively quickly that allows for this compilation: 
-```dockerfile
-
-```
-			
 After doing that, we can follow the instructions followed by Arpan and viola! C# runs on Gradescope!
 
 I don't recommend this but it was fun to do and I needed stuff to write in a blog. 
@@ -39,7 +31,7 @@ I don't recommend this but it was fun to do and I needed stuff to write in a blo
 C# actually has many lower level features people don't expect it to have. Some of these include pointers and direct memory management. Pointers can be enabled by encasing your code in an unsafe code block.
 
 Example (Written by [Microsoft](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code))
-```c#
+```csharp
 
 // Normal pointer to an object.
 int[] a = new int[5] { 10, 20, 30, 40, 50 };
@@ -68,4 +60,4 @@ unsafe
 }
 ```
 
-In .NET 6, the `NativeMemory` class was introduced which you can read about here: [](). It allows for malloc-like memory allocation and freeing which can be important for performance (and is also generally just better than letting a garbage garbage collector do your 
+In .NET 6, the `NativeMemory` class was introduced which you can read about [here](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.nativememory.alloc?view=net-6.0). It allows for malloc-like memory allocation and freeing which can be important for high-performance workloads.

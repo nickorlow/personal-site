@@ -4,7 +4,7 @@ const RunningHobby: InfoCardProps = {
     title: "Running",
     description: "I started running cross country in 7th grade after wanting to beat my friend in the mile. I kept running all the way through to my senior year of high school. I made varsity my sophomore year. Today, I just run with friends casually along with other physical activity like lifting, biking, and kayaking.",
     listTitle: "Personal Records",
-    list:["1600 - 4:34", "3200 - 10:11", "5K XC - 16:42"],
+    list:["1600 - 4:34", "3200 - 10:11", "5K XC - 16:43"],
     link: "https://tx.milesplit.com/athletes/7325388-nicholas-orlowsky/stats",
     linkTitle: "Milesplit Profile",
     listClassName: "col-12"
@@ -14,7 +14,7 @@ const Lifting: InfoCardProps = {
     title: "Lifting",
     description: "Once I was done with cross country, I was so used to working out everyday, I just couldn't stop. I started lifting as a break from my 6 years and 10,000 miles of running and really really liked it.",
     listTitle: "Personal Records",
-    list:["Bench - 235lbs", "Squat - 345lbs", "Deadlift - 345lbs (I think)"],
+    list:["Bench - 255lbs (Done at the Home Depot's HQ in Atlanta, GA)", "Squat - 345lbs", "Deadlift - 345lbs"],
     listClassName: "col-12"
 }
 

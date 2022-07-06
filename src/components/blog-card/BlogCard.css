@@ -1,0 +1,36 @@
+
+@media only screen and (max-width: 768px) {
+    .blog-card {
+        margin-top: 100px;
+    }
+}
+
+.blog-card {
+    padding: 10px;
+}
+
+.blog-card-img {
+    background-color: #FFFFFF;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.blog-card-info {
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+.blog-card-int {
+    border-radius: 10px;
+    background-color: #1a1a1e;
+    transition: 1s;
+}
+
+.blog-card-int:hover {
+    transform: translateY(-5px);
+    transition: .5s;
+    cursor: pointer;
+}
