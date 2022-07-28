@@ -51,9 +51,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           
       - name: NWS Pull New Image
-        uses: nickorlow/nws-pull-new-image@v0.7
+        uses: nickorlow/nws-pull-new-image@v0.9.2
         with:
           # Your NWS Deploy Key
           deploy-key: ${{ secrets.NWS_DEPLOY_KEY }}
           # The application id to get a new image for
-          application-id: 'personal-site'
+          application-id: ${{ secrets.NWS_APPLICATION_ID }}
