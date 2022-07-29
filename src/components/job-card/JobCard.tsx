@@ -5,10 +5,10 @@ import "./JobCard.css";
 
 export default function JobCard(props: {style?: any, className?: string, job: Job}){
     return (
-        <ScrollAnimation className={"job-card "+(props.className || "")} style={props.style} animateIn="fade-up" duration={2} animateOnce={true} offset={50} delay={200}>
+        <ScrollAnimation className={"job-card "+(props.className || "")} style={props.style} animateIn={"no-fade-up"} initiallyVisible={true} duration={2} animateOnce={true} offset={50} delay={200}>
             <div className={"row"} style={{paddingTop: 40}}>
                 <div  className={"col-md-4"}>
-                    <img className={"float-left float-md-none"} alt={props.job.company+" company logo"} src={props.job.image} style={{paddingLeft: 20, objectFit: "contain" ,height: "auto", maxWidth: 300}}/>
+                    <img className={"float-left float-md-none"} alt={props.job.company+" company logo"} src={props.job.image} style={{objectFit: "contain" ,height: "auto", width: "300px", maxWidth: '100%'}}/>
                 </div>
                 <div className={"col-md-8 row"}>
                     <div className={"col-md-6 text-left"}>
@@ -17,9 +17,9 @@ export default function JobCard(props: {style?: any, className?: string, job: Jo
                         {props.job.uri != null && <a href={props.job.uri}><h5>{props.job.company}</h5></a>}
                         <p>{props.job.timespan}</p>
                     </div>
-                    <ul  className={"col-md-6 text-left"}>
+                    <div  className={"col-md-6 text-left"}>
                         {props.job.items.map((s) =>  <li>{s}</li>)}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </ScrollAnimation>

@@ -9,7 +9,7 @@ export default function Blogs() {
 
     return (
         <div className={"child"}>
-            <div className={"row"} style={{alignContent: "center", padding: 50}}>
+            <div className={"row"} style={{alignContent: "center"}}>
                 {AllBlogs.reverse().map((blog, i) => {
                     blogId++;
                     if(!blog.private) {
