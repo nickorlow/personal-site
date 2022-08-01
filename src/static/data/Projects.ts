@@ -15,7 +15,7 @@ const RoomyProject: InfoCardProps = {
     listTitle: "Technologies Used",
     list: ["C#", ".NET 6", "NoSQL", "Docker", "nginx", "React Native", "Cloudflare"],
     link: "https://github.com/nickorlow/roomy-sentry",
-    linkTitle: "Github Repository"
+    linkTitle: "Github Repo"
 }
 
 const CavCashProject: InfoCardProps = {

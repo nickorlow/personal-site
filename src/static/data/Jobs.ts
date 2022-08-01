@@ -3,9 +3,10 @@ import VrboImage from "../images/vrbo-logo-min.png";
 import CavImage from "../images/cavcash-logo-min.png";
 import ChicksImage from "../images/chicks-logo.png";
 import CompImage from "../images/compwallet-logo.png";
+import THDImage from "../images/homdepot-logo.png";
 
 const VrboJob: Job = {
-    title: "Data Scientist",
+    title: "Data Science Intern",
     company: "Vrbo, a part of Expedia Group",
     uri: "https://vrbo.com",
     timespan: "August 2019 - January 2021",
@@ -57,6 +58,17 @@ const CompWalletJob: Job = {
     image: CompImage
 }
 
+const HomeDepotJob: Job = {
+    title: "Software Engineering Intern",
+    company: "The Home Depot",
+    uri: "https://homedepot.com",
+    timespan: "May 2022 - August 2022",
+    items: [
+        "Developed functionality using React.js, Node.js, and Github CI/CD Pipelines for internal tooling saving 500+ engineering hours annually",
+        "Optimized automotive section of HomeDepot website. Removed unnecessary code, reducing Javascript sent to clients by ~10%"
+    ],
+    image: THDImage
+}
 
-export const AllJobs: Job[] = [CompWalletJob, CavCashJob, ChicksJob, VrboJob];
+export const AllJobs: Job[] = [HomeDepotJob, CompWalletJob, CavCashJob, ChicksJob, VrboJob];
 

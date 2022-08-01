@@ -16,7 +16,7 @@ export default function Jobs() {
             <div className={"align-content-center d-md-none"}>
                 <h1 className={"mb-4"}>Work</h1>
                 <p>{cur}/{AllJobs.length}</p>
-                <Carousel controls={false} interval={null} onSlide={(e)=>{setCur(e+1)}} indicators={false} wrap={false}>
+                <Carousel controls={false} interval={null}  onSlide={(e)=>{setCur(e+1)}} indicators={false} wrap={false}>
                     {AllJobs.map((job, i) =>
                         <Carousel.Item>
                             <JobCard job={job}/>

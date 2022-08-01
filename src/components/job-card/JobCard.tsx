@@ -8,7 +8,7 @@ export default function JobCard(props: {style?: any, className?: string, job: Jo
         <ScrollAnimation className={"job-card "+(props.className || "")} style={props.style} animateIn={"no-fade-up"} initiallyVisible={true} duration={2} animateOnce={true} offset={50} delay={200}>
             <div className={"row"} style={{paddingTop: 40}}>
                 <div  className={"col-md-4"}>
-                    <img className={"float-left float-md-none"} alt={props.job.company+" company logo"} src={props.job.image} style={{objectFit: "contain" ,height: "auto", width: "300px", maxWidth: '100%'}}/>
+                    <img className={"float-left float-md-none"} alt={props.job.company+" company logo"} src={props.job.image} style={{objectFit: "contain" ,height: "auto", width: "auto", maxHeight: 100, maxWidth: '300px'}}/>
                 </div>
                 <div className={"col-md-8 row"}>
                     <div className={"col-md-6 text-left"}>
