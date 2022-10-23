@@ -2,6 +2,7 @@ import VrboImage from "../images/vrbo-logo-min.png";
 import Blog from "../../types/Blog";
 import CSMD from "./blogs/c-sharp-c-assignment.md";
 import TAB from "./blogs/there-is-a-blog.md";
+import HID from "./blogs/hidden-blog.md";
 
 const CSharpBlog: Blog = {
     title: "Doing C assignments in C#",
@@ -13,7 +14,7 @@ const CSharpBlog: Blog = {
 
 const TestBlog: Blog = {
     title: "There's a Blog!",
-    date: new Date(),
+    date: new Date(2022, 7, 6, 12, 0, 0),
     image: VrboImage,
     mdfile: TAB,
     private: false
@@ -21,9 +22,9 @@ const TestBlog: Blog = {
 
 const PrivateBlog: Blog = {
     title: "This blog can only be accessed via the direct URI",
-    date: new Date(),
+    date: new Date(2022, 7, 6, 12, 0, 0),
     image: VrboImage,
-    mdfile: TAB,
+    mdfile: HID,
     private: true
 }
 

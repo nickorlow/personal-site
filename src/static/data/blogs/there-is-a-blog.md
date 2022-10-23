@@ -42,7 +42,7 @@ export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog];
 ```
 This metadata then gets converted into a list and whenever you view a blog, it fetches the associated markdown file and parses it to show you here.
 
-I decided to add an option to hide some blogs from the 'All blogs' page (Notice how you don't see [This Blog](http://localhost:3000/blog?id=1) there?) 
+I decided to add an option to hide some blogs from the 'All blogs' page (Notice how you don't see [This Blog](http://nickorlow.com/blog?id=1) there?) 
 It's intended to be used so I can host things like Privacy Policies and Terms of Services for apps I write without cluttering up my blog. 
 
 You may have noticed that there's an unused Image option. This option would provide a thumbnail, but I decided to remove them for now in favor of a cleaner look.
