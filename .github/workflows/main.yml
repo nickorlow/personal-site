@@ -51,7 +51,7 @@ jobs:
           tag_prefix: "v"
           major_pattern: "(MAJOR)"
           minor_pattern: "(MINOR)"
-          version_format: "${major}.${minor}.${patch}-prerelease${increment}"
+          version_format: "${major}.${minor}.${increment}"
           bump_each_commit: true
     
       - name: Build and push Docker image
@@ -60,6 +60,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ steps.meta.outputs.tags }}
             ${{ steps.vnum.formatted_version }}
+            ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
