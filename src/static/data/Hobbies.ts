@@ -14,7 +14,7 @@ const Lifting: InfoCardProps = {
     title: "Lifting",
     description: "I started lifting as a break from my 6 years and 10,000 miles of running and really liked it.",
     listTitle: "Personal Records",
-    list:["Bench - 270lbs", "Squat - 405lbs", "Deadlift - 385lbs"],
+    list:["Bench - 270lbs", "Squat - 405lbs", "Deadlift - 405lbs"],
     listClassName: "col-12"
 }
 
