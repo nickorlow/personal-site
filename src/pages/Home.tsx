@@ -19,7 +19,7 @@ function Home() {
             {showTerm && <Terminal isTerminalVisible={isTerminalVisible} setIsTerminalVisible={setIsTerminalVisible}/>}
             {!isTerminalVisible &&
                 <div>
-                    <div className={"w-100  d-flex justify-content-center align-content-center text-center p-1"} style={{backgroundColor: "#004C54", height: 40, position: "absolute", top: 0}} >
+                    <div className={"w-100 d-flex justify-content-center align-content-center text-center p-1"} style={{backgroundColor: "#004C54", height: 40, position: "absolute", top: 0}} >
                         <p className={"text-white fw-bold"}>Fly Eagles Fly</p>
                         <img src={"https://logos-world.net/wp-content/uploads/2020/05/Philadelphia-Eagles-Logo.png"} style={{maxHeight: "100%", maxWidth: "100%"}}/>
                     </div>
