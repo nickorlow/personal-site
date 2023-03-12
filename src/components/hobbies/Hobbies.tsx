@@ -20,7 +20,7 @@ export default function Hobbies () {
                 alignItems: "center"
             }}>
                 <div className={"d-md-block d-none"}>
-                    <h1>Other Hobbies</h1>
+                    <h1>Hobbies</h1>
                     {AllHobbies.map((hobby) => <InfoCard style={{textAlign: "left", maxWidth: "50vmax", margin: 50}}
                                                          info={hobby}/>)}
                 </div>

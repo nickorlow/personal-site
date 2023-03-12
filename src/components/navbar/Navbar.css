@@ -1,0 +1,21 @@
+.navbar-selected-pill {
+    background-color: white;
+    width: 40px;
+    height: 3px;
+    border-radius: 5px;
+    transition-duration: .5s;
+}
+
+.navbar-unselected-pill {
+    width: 0px;
+}
+
+.no-blue-link {
+    color: white;
+}
+
+.no-blue-link:hover {
+    transition-duration: .5s;
+    color: grey;
+    text-decoration: none;
+}

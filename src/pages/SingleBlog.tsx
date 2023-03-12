@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import {AllBlogs} from "../static/data/Blogs";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {a11yDark as theme} from "react-syntax-highlighter/dist/esm/styles/prism";
+import {Link} from "react-router-dom";
 
 function SingleBlog() {
 
@@ -28,7 +29,7 @@ function SingleBlog() {
         <div className="Blog" style={{padding: 20}}>
             <h1>{AllBlogs[blogId].title}</h1>
             <p>{AllBlogs[blogId].date.toLocaleDateString()}</p>
-            <p><a href={"/"}>Return Home</a> | <a href={"/blogs"}>All Blogs</a></p>
+            <p><Link to={"/blogs"}>Back</Link></p>
             <div style={{width: "100%", display: 'flex', justifyContent: 'center'}}>
                 <div style={{textAlign: "left", margin: 20, maxWidth: "80vw"}}>
                     <ReactMarkdown

@@ -23,7 +23,6 @@ export default function Hero() {
                 </div>
                 <SocialBar style={{justifyContent: "center", width: "60vmin"}}/>
             </div>
-            <p className={"fade-up-d3s"}>scroll for more</p>
         </div>
     );
 }
