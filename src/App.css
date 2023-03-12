@@ -16,6 +16,11 @@ html {
   background-color: black;
 }
 
+.fade-down-d3s {
+  opacity: 0;
+  animation: fade-down-anim 2s forwards 3s;
+}
+
 /* we do this because scroll snapping is broken on moz://a for some reason */
 @supports (-moz-appearance:none){
   html {
@@ -42,6 +47,17 @@ h1 {
   0% {
     opacity: 0;
     transform: translateY(40px);
+  }
+  100% {
+    opacity:1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fade-down-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
   }
   100% {
     opacity:1;

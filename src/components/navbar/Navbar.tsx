@@ -6,7 +6,7 @@ export default function Navbar() {
     const location = useLocation();
 
     return (
-        <div style={{maxWidth:"100%"}} className={"d-flex justify-content-center align-items-center " + (location.pathname === "/" ? "fade-up-d3s" : "")} >
+        <div style={{maxWidth:"100%", marginTop: 10}} className={"d-flex justify-content-center align-items-center " + (location.pathname === "/" ? "fade-down-d3s" : "")} >
             <div className={"d-flex flex-row justify-content-around"} style={{width: 700}}>
                 <div className={"d-flex flex-column justify-content-center align-items-center"}>
                     <Link to={"/home"} className={"mb-0 no-blue-link"}>Home</Link>

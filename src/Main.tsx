@@ -14,10 +14,10 @@ import Projects from "./components/projects/Projects";
 const NavBarView = (props: {children: any}) => {
     return (
         <div>
+            <Navbar/>
             <div style={{height: "95vh"}}>
             {props.children}
             </div>
-            <Navbar/>
         </div>
     )
 }
