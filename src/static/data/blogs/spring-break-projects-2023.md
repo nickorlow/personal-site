@@ -55,7 +55,7 @@ friendly. Last year, I made some improvements to make it usable on mobile but it
 think that it has some information overload in some areas such as the projects section. I think that to mitigate this I 
 might just have a small summary of each project and then you can click into each to learn more about it, similar to my 
 friend [Raul's Website](https://raulhigareda.com). I'm also considering a move to tab-based navigation so that I can have
-more information in . Further down the line, I think I might re-write it using Svelte as I'm seeing it being used more and more
+more information in each section. Further down the line, I think I might re-write it using Svelte as I'm seeing it being used more and more
 and would like to get some exposure to it.
 
 ## Mahantongo
