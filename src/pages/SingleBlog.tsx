@@ -26,12 +26,36 @@ function SingleBlog() {
         })
 
     return (
-        <div className="Blog" style={{padding: 20}}>
+        <div className="Blog" style={{paddingTop: 30}}>
             <h1>{AllBlogs[blogId].title}</h1>
             <p>{AllBlogs[blogId].date.toLocaleDateString()}</p>
             <p><Link to={"/blogs"}>Back</Link></p>
             <div style={{width: "100%", display: 'flex', justifyContent: 'center'}}>
-                <div style={{textAlign: "left", margin: 20, maxWidth: "80vw"}}>
+                <div className={"d-md-none d-block"}  style={{textAlign: "left", margin: 20}}>
+                    <ReactMarkdown
+                        components={{
+                            code({node, inline, className, children, ...props}) {
+                                const match = /language-(\w+)/.exec(className || '')
+                                return !inline && match ? (
+                                    <SyntaxHighlighter
+                                        children={String(children).replace(/\n$/, '')}
+                                        style={theme}
+                                        language={match[1]}
+                                        PreTag="div"
+                                        {...props}
+                                    />
+                                ) : (
+                                    <code className={className} {...props}>
+                                        {children}
+                                    </code>
+                                )
+                            }
+                        }}
+                    >
+                        {blog}
+                    </ReactMarkdown>
+                </div>
+                <div className={"d-none d-md-block"} style={{textAlign: "left", margin: 20, maxWidth: "80vw"}}>
                     <ReactMarkdown
                         components={{
                             code({node, inline, className, children, ...props}) {

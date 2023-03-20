@@ -5,6 +5,7 @@ import TAB from "./blogs/there-is-a-blog.md";
 import HID from "./blogs/hidden-blog.md";
 import NWSSSL from "./blogs/nws-how-to-do-ssl.md";
 import SP2023 from "./blogs/spring-break-projects-2023.md";
+import SPLG1 from "./blogs/side-project-log-3-20-2023.md";
 
 const CSharpBlog: Blog = {
     title: "Doing C assignments in C#",
@@ -47,5 +48,14 @@ const SpringBreak2023Blog: Blog = {
 }
 
 
-export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog, NWSSSLBlog, SpringBreak2023Blog];
+const SideProjectLogOne: Blog = {
+    title: "Side Project Log 3/20/23",
+    date: new Date(2023, 2, 20, 12, 0, 0),
+    image: VrboImage,
+    mdfile: SPLG1,
+    private: false
+}
+
+
+export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog, NWSSSLBlog, SpringBreak2023Blog, SideProjectLogOne];
 
