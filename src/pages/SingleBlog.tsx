@@ -13,7 +13,8 @@ function SingleBlog() {
     const [blogText, setBlogText] = useState<string>('');
 
     useEffect(()=> {
-        let blogName = window.location.pathname.split('/').at(-1);
+        let pathParts = window.location.pathname.split('/');
+        let blogName = pathParts[pathParts.length - 1];
         setBlog(AllBlogs.find(b => b.uri == blogName));
     }, [])
 
