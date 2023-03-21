@@ -12,7 +12,7 @@ export default function InfoCard(props: {style?: any, className?: string, info: 
             <div>
                 <h4>{props.info.listTitle}</h4>
                 <div className={"row"} style={{color: "green", fontFamily: "monospace"}}>
-                    {props.info.list.map(s => <p className={"col-6 "+(props.info.listClassName || "col-md-4")} style={{fontSize: 16}}>{s}</p>)}
+                    {props.info.list.map(s => <p className={"col-4"} style={{fontSize: 16}}>{s}</p>)}
                 </div>
             </div>
             {props.info.link != null && <a href={props.info.link}>{props.info.linkTitle || "Relevant Link"}</a>}

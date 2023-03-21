@@ -24,7 +24,7 @@ const RoomyProject: ProjectCardProps = {
 const CavCashProject: ProjectCardProps = {
     title: "CavCash",
     description: "CavCash started as a project in 2017 as a way to pay with flashdrives. After recruiting a few friends to help me, we build ourselves into a PayPal competitor but shutdown due to funding. I continued to re-write the platform as a cryptocurrency.",
-    shortDescription: "Functional Venmo-like service",
+    shortDescription: "Like Venmo, but better",
     techUsed: ["C#", "Kubernetes", "mongoDB", "MSSQL", "Docker", "nginx", "Azure DevOps", "React", "Cloudflare"],
     link: "https://cavcash.com",
     linkTitle: "Project Website",
@@ -61,5 +61,15 @@ const NWSProject: ProjectCardProps = {
     imageUrl: ""
 }
 
-export const AllProjects: ProjectCardProps[] = [WebsiteProject, NWSProject, RoomyProject, XenMapProject, CavCashProject, SPONODEProject];
+const Mahantongo: ProjectCardProps = {
+    title: "Mahantongo",
+    description: "I'm one of the members of the Community Team that runs some UT Computer Science community Discord servers. Currently, a Discord bot called Carlbot provides us a star-board, which is a specific channel where messages that 5 or more people react to with a star emoji get posted. It's supposed to be a collection of the funniest and best messages sent on the server. One of the things our server members have wanted is the addition of more '*-board' channels where you can create multiple star-board like channels but with custom emojis. \n\n I wrote this bot in Rust using Serenity to interact with the Discord API and it helped me gain a better understanding of Rust. It is hosted on NWS.",
+    shortDescription: "A Discord bot to show off the best (or worst) of your server.",
+    link: "https://github.com/nickorlow/mahantongo",
+    linkTitle: "Github Repo",
+    techUsed: ["Discord API", "Rust"],
+    imageUrl: ""
+}
+
+export const AllProjects: ProjectCardProps[] = [WebsiteProject, NWSProject, Mahantongo, RoomyProject, XenMapProject, CavCashProject, SPONODEProject];
 

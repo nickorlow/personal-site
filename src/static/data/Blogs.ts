@@ -8,6 +8,7 @@ import SP2023 from "./blogs/spring-break-projects-2023.md";
 import SPLG1 from "./blogs/side-project-log-3-20-2023.md";
 
 const CSharpBlog: Blog = {
+    uri: "c-assignments-in-csharp",
     title: "Doing C assignments in C#",
     date: new Date(2022, 2, 18, 14, 15, 0),
     image: VrboImage,
@@ -16,6 +17,7 @@ const CSharpBlog: Blog = {
 }
 
 const TestBlog: Blog = {
+    uri: "there-is-a-blog",
     title: "There's a Blog!",
     date: new Date(2022, 7, 6, 12, 0, 0),
     image: VrboImage,
@@ -24,6 +26,7 @@ const TestBlog: Blog = {
 }
 
 const PrivateBlog: Blog = {
+    uri: "private-blog",
     title: "This blog can only be accessed via the direct URI",
     date: new Date(2022, 7, 6, 12, 0, 0),
     image: VrboImage,
@@ -32,6 +35,7 @@ const PrivateBlog: Blog = {
 }
 
 const NWSSSLBlog: Blog = {
+    uri: "ssl-in-nws-cds",
     title: "Implementing SSL in NWS CDS",
     date: new Date(2023, 0, 20, 12, 0, 0),
     image: VrboImage,
@@ -40,6 +44,7 @@ const NWSSSLBlog: Blog = {
 }
 
 const SpringBreak2023Blog: Blog = {
+    uri: "spring-break-2023",
     title: "Spring Break 2023",
     date: new Date(2023, 2, 11, 12, 0, 0),
     image: VrboImage,
@@ -49,6 +54,7 @@ const SpringBreak2023Blog: Blog = {
 
 
 const SideProjectLogOne: Blog = {
+    uri: "side-project-log-3-20-2023",
     title: "Side Project Log 3/20/23",
     date: new Date(2023, 2, 20, 12, 0, 0),
     image: VrboImage,

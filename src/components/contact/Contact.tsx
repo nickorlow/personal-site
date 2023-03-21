@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact() {
     return (
-        <div className={"child"} style={{minHeight: "90vh"}}>
+        <div  style={{minHeight: "90vh"}}>
             <div style={{minHeight: "90vh", display: "flex", alignItems: "center", justifyContent: "center"}}>
                 <div>
                     <h1>Contact</h1>

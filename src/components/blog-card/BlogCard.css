@@ -25,12 +25,14 @@
 
 .blog-card-int {
     border-radius: 7px;
-    background-color: #1a1a1e;
+    font-family: monospace;
     transition: 1s;
+    color: #FFFFFF;
 }
 
 .blog-card-int:hover {
-    transform: translateY(-5px);
+    color: #F38020;
     transition: .5s;
     cursor: pointer;
+    text-decoration: none;
 }

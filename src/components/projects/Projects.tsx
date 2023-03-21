@@ -8,7 +8,7 @@ import ProjectCard from "../project-card/ProjectCard";
 export default function Projects() {
     const [cur, setCur] = useState(1);
     return (
-        <div className={"child"} style={{minHeight: "100vh"}}>
+        <div  style={{minHeight: "100vh"}}>
 
             <div style={{
                 display: "flex",
@@ -20,7 +20,7 @@ export default function Projects() {
                 alignItems: "center"
             }}>
 
-                <div className={"align-content-center"}>
+                <div className={"align-content-center mb-4 mt-4"}>
                     <h1>Projects</h1>
                     <p>Click to learn more about each project</p>
                     <div className={"row m-0"} style={{justifyContent: "center", padding: 50}}>

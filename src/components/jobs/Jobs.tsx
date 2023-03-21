@@ -8,7 +8,7 @@ import {Carousel} from "react-bootstrap";
 export default function Jobs() {
     const [cur, setCur] = useState(1);
     return (
-        <div className={"child"} style={{minHeight: "100vh"}}>
+        <div  style={{minHeight: "100vh"}}>
             <div className={"align-content-center d-md-block d-none"}>
                 <h1 style={{marginBottom: 40}}>Work</h1>
                 {AllJobs.map((job, i) =><JobCard job={job}/>)}

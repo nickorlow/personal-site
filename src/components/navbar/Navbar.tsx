@@ -24,10 +24,11 @@ export default function Navbar() {
                     <Link to={"/projects"} className={"mb-0 no-blue-link"}>Projects</Link>
                     <div className={"navbar-selected-pill " + (location.pathname === "/projects" ? "" : "navbar-unselected-pill")}/>
                 </div>
-                <div className={"d-flex flex-column justify-content-center align-items-center"}>
-                    <Link to={"/hobbies"} className={"mb-0 no-blue-link"}>Hobbies</Link>
-                    <div className={"navbar-selected-pill " + (location.pathname === "/hobbies" ? "" : "navbar-unselected-pill")}/>
-                </div>
+                {/*Disabling this page for now*/}
+                {/*<div className={"d-flex flex-column justify-content-center align-items-center"}>*/}
+                {/*    <Link to={"/hobbies"} className={"mb-0 no-blue-link"}>Hobbies</Link>*/}
+                {/*    <div className={"navbar-selected-pill " + (location.pathname === "/hobbies" ? "" : "navbar-unselected-pill")}/>*/}
+                {/*</div>*/}
             </div>
         </div>
     )

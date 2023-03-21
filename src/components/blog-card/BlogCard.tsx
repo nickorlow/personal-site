@@ -1,19 +1,19 @@
 import ScrollAnimation from "react-animate-on-scroll";
 import React from "react";
+import {Link} from "react-router-dom";
 import Job from "../../types/Job";
 import "./BlogCard.css";
 import Blog from "../../types/Blog";
 
-export default function BlogCard(props: {style?: any, className?: string, blog: Blog, num: number}){
+export default function BlogCard(props: {style?: any, className?: string, blog: Blog}){
     return (
-        <ScrollAnimation className={"blog-card "+(props.className || "")} style={props.style} animateIn="fade-up" duration={2} animateOnce={true} offset={50} delay={200}>
-            <div onClick={()=>{window.location.href="/blog?id="+props.num}} className={"blog-card-int"}>
-                {/*<img className={"blog-card-img"} src={props.blog.image}/>*/}
+        <div className={"blog-card "+(props.className || "")} style={props.style}>
+            <Link to={"/blog/"+props.blog.uri}  className={"blog-card-int"}>
                 <div className={"blog-card-info"}>
-                    <h3>{props.blog.title}</h3>
-                    <p>{props.blog.date.toLocaleDateString()}</p>
+                    <h4 className={"font-weight-bold"}>{props.blog.title}</h4>
+                    <p className={"font-weight-lighter"}>{props.blog.date.toLocaleDateString()}</p>
                 </div>
-            </div>
-        </ScrollAnimation>
+            </Link>
+        </div>
     );
 }

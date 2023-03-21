@@ -5,7 +5,7 @@ import React from "react";
 export default function Hero() {
     return (
         <div>
-            <div className={"child"} style={{
+            <div  style={{
                 height: "95vh",
                 display: "flex",
                 alignContent: "center",

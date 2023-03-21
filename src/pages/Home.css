@@ -20,23 +20,7 @@ html {
   background-color: black;
 }
 
-/* we do this because scroll snapping is broken on moz://a for some reason */
-@supports (-moz-appearance:none){
-  html {
-    scroll-snap-type: none !important;
-  }
-}
 
-/* mobile won't play with snapping too well so we need to make it prox not mandatory */
-@media only screen and (max-width: 600px) {
-  html {
-    scroll-snap-type: none !important;
-  }
-
-  .child {
-    scroll-snap-align: none !important;
-  }
-}
 
 h1 {
   font-weight: bolder;
@@ -151,15 +135,6 @@ h1 {
 ul {
   list-style-type: none;
   margin-left: -35px;
-
-}
-
-html {
-  scroll-snap-type: y proximity;
-}
-
-.child {
-  scroll-snap-align: center;
 
 }
 
