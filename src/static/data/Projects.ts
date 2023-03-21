@@ -53,7 +53,7 @@ const SPONODEProject: ProjectCardProps = {
 
 const NWSProject: ProjectCardProps = {
     title: "Nick Web Services",
-    description: "App for Android & macOS that added songs people sent you to a playlist. Made so we could have a jukebox type setup during track workouts.",
+    description: "Nick Web Services is a cloud hosting provider that I created. It was originally one server I got from goodwill in a garage, but now it's 4 servers across 2 states (PA & TX).",
     shortDescription: "My own cloud provider",
     techUsed: ["Kubernetes", "Rancher", "C#"],
     link: "https://nws.nickorlow.com",
