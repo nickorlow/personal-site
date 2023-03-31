@@ -31,7 +31,7 @@ wrote an API to generate the manifest files and then upload them to a git repo. 
 you can watch [here](https://youtu.be/WHdXWMFHuqA).
 
 Currently, the service works for deployment but only if you don't want to use SSL or you use Cloudflare's flexible SSL
-technology. I wrote a separate blog post [here](http://nickorlow.com/blog?id=3) about the challenges of doing this and how I plan on implementing it. 
+technology. I wrote a separate blog post [here](http://nickorlow.com/blog/ssl-in-nws-cds) about the challenges of doing this and how I plan on implementing it. 
 I'd like to complete part of this implementation during the break.
 
 ## VerifiedBot 

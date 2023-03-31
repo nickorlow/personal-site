@@ -52,7 +52,6 @@ const SpringBreak2023Blog: Blog = {
     private: false
 }
 
-
 const SideProjectLogOne: Blog = {
     uri: "side-project-log-3-20-2023",
     title: "Side Project Log 3/20/23",
@@ -62,6 +61,15 @@ const SideProjectLogOne: Blog = {
     private: false
 }
 
+const SideProjectLogTwo: Blog = {
+    uri: "side-project-log-3-27-2023",
+    title: "Side Project Log 3/27/23",
+    date: new Date(2023, 2, 27, 12, 0, 0),
+    image: VrboImage,
+    mdfile: SPLG1,
+    private: false
+}
 
-export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog, NWSSSLBlog, SpringBreak2023Blog, SideProjectLogOne];
+
+export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog, NWSSSLBlog, SpringBreak2023Blog, SideProjectLogOne, SideProjectLogTwo];
 
