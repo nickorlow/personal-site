@@ -6,6 +6,7 @@ import HID from "./blogs/hidden-blog.md";
 import NWSSSL from "./blogs/nws-how-to-do-ssl.md";
 import SP2023 from "./blogs/spring-break-projects-2023.md";
 import SPLG1 from "./blogs/side-project-log-3-20-2023.md";
+import SPLG2 from "./blogs/side-project-log-3-27-2023.md";
 
 const CSharpBlog: Blog = {
     uri: "c-assignments-in-csharp",
@@ -66,7 +67,7 @@ const SideProjectLogTwo: Blog = {
     title: "Side Project Log 3/27/23",
     date: new Date(2023, 2, 27, 12, 0, 0),
     image: VrboImage,
-    mdfile: SPLG1,
+    mdfile: SPLG2,
     private: false
 }
 
