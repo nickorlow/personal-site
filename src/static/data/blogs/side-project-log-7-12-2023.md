@@ -5,7 +5,7 @@ This side project log is more than a bit late due to working a busy summer inter
 ## NWS Container Deployment Service
 I have finally added SSL to NWS CDS. This was challenging, as it required handling ACME challenges and certificate
 distribution across a set of geo-distributed Kubernetes clusters. I detail the complexities of this in a [previous blog
-I wrote](http://nickorlow.com/blog/ssl-in-nws-cds). In order to implement auto-renewing, automatic SSL, I implemented the below solution:
+I wrote](http://nickorlow.com/blog/ssl-in-nws-cds). In order to implement auto-created/auto-renewing SSL, I implemented the below solution:
 
 ![Diagram of NWS SSL Architecture](/blog-images/NWS_SSL_Diagram.png)
 
