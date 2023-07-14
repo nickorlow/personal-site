@@ -8,6 +8,7 @@ import SP2023 from "./blogs/spring-break-projects-2023.md";
 import SPLG1 from "./blogs/side-project-log-3-20-2023.md";
 import SPLG2 from "./blogs/side-project-log-3-27-2023.md";
 import SPLG3 from "./blogs/side-project-log-4-29-2023.md";
+import SPLG4 from "./blogs/side-project-log-7-12-2023.md";
 
 const CSharpBlog: Blog = {
     uri: "c-assignments-in-csharp",
@@ -81,5 +82,14 @@ const SideProjectLogThree: Blog = {
     private: false
 }
 
-export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog, NWSSSLBlog, SpringBreak2023Blog, SideProjectLogOne, SideProjectLogTwo, SideProjectLogThree];
+const SideProjectLogFour: Blog = {
+    uri: "side-project-log-7-12-2023",
+    title: "Side Project Log 7/12/23",
+    date: new Date(2023, 7, 12, 12, 0, 0),
+    image: VrboImage,
+    mdfile: SPLG4,
+    private: false
+}
+
+export const AllBlogs: Blog[] = [CSharpBlog, PrivateBlog, TestBlog, NWSSSLBlog, SpringBreak2023Blog, SideProjectLogOne, SideProjectLogTwo, SideProjectLogThree, SideProjectLogFour];
 
