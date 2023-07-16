@@ -54,6 +54,15 @@ function SingleBlog() {
                                             {children}
                                         </code>
                                     )
+                                },
+
+                                img({node, ...props}){
+                                    console.log(node.properties)
+                                    return (
+                                        <img
+                                            alt={node!.properties!.alt!.toString()}
+                                            src={node!.properties!.src!.toString()}
+                                            style={{ maxWidth: "100%" }}  />)
                                 }
                             }}
                         >
@@ -63,6 +72,7 @@ function SingleBlog() {
                     <div className={"d-none d-md-block"} style={{textAlign: "left", margin: 20, maxWidth: "80vw"}}>
                         <ReactMarkdown
                             components={{
+
                                 code({node, inline, className, children, ...props}) {
                                     const match = /language-(\w+)/.exec(className || '')
                                     return !inline && match ? (
@@ -78,7 +88,17 @@ function SingleBlog() {
                                             {children}
                                         </code>
                                     )
+                                },
+
+                                img({node, ...props}){
+                                    console.log(node.properties)
+                                    return (
+                                        <img
+                                            alt={node!.properties!.alt!.toString()}
+                                            src={node!.properties!.src!.toString()}
+                                            style={{ maxWidth: "100%" }}  />)
                                 }
+
                             }}
                         >
                             {blogText}
