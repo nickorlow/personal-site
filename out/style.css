@@ -1,0 +1,22 @@
+* {
+  font-family: serif; 
+}
+
+td {
+  text-align: center;
+}
+
+body {
+  background-color: #fefeaa;
+  margin: 20px auto;
+  max-width: 750px;
+}
+
+a {
+  text-decoration: none;
+  color: #114488;
+}
+
+img {
+  max-width: 100%;
+}

@@ -1,0 +1,64 @@
+<div>
+  <h1 style="margin-bottom: 0px;">Projects</h1>
+
+  <div>
+    <h2>Nick Web Services (NWS)</h2>
+    <a href="https://nws.nickorlow.com">[ Project Website ]</a>
+    <p>
+      Nick Web Services is a cloud infrastructure provider service that I created and run.
+      It allows people to deploy containerized versions of their web apps across our multiple
+      servers. It provides geo-distributed high availability by default with no extra configuration
+      needed from users hosting their webapp with us.
+    </p>
+    <p>
+      Hardware-wise we use old Dell PowerEdge servers running Proxmox. We then have VMs running
+      in Proxmox that run Kubernetes clusters. We have 4 clusters currently: Austin, Hill Country,
+      Schuylkill, and Philadelphia. The deployments are managed through GitOps with Rancher Fleet. 
+    </p>
+  </div>
+  
+  <div>
+    <h2>CavCash</h2>
+    <a href="https://cavcash.com">[ Project Website ]</a>
+    <p>
+      CavCash was a company that I founded which built a debit-based payment system similar to 
+      PayPal and Venmo. I assembled a 5 person team and took on a technical role in the company,
+      writing most of our backend codebase. Our backend used C#, ASP.NET, Microsoft SQL Server,
+      and MongoDB. Our infrastructure changed throughout the lifetime of the company, initially
+      it was on Microsoft Azure using Azure App Service. We then pivoted to AWS using Elastic
+      Beanstalk. We also ran on Google Cloud Platform using Compute Engine. Finally, we setup our
+      own servers in-house and managed our deployments with Kubernetes.
+    </p>
+    <p>
+      We launched in 2021, with the ability to send money between real banks using the ACH network.
+      We ended up processing a few hundred dollars in transaction volume before ultimately shutting
+      down due to a lack of funding. The website is now back up and everything works as it did in 
+      2021, except adding funds from a bank account is not supported.
+    </p>
+  </div>
+
+  <div>
+    <h2>SQUIRREL</h2>
+    <p>
+      SQUIRREL stands for SQL Query Util-Izing Rust's Reliable and Efficient Logic. It is a SQL database 
+      that I am writing in Rust. Currently, it can parse CREATE TABLE commands, and works with the 
+      data types varchar and int. I plan to implement basic CRUD operations, then add JOINs, and then 
+      try to make it wire-compatible with Postgres.
+    </p>
+  </div>
+
+  <div>
+    <h2>SEPTA Site</h2>
+    <a href="https://github.com/nickorlow/septa-site">[ GitHub Repo ]</a>
+    <p>
+      SEPTA Site is a website that I created which can get your trip history, SEPTA Key balance, 
+      and ridership statistics for your SEPTA Key. It utilizes SEPTA's new metro wayfinding instead
+      of their current wayfinding. I wrote the project to get a basic introduction to Svelte and 
+      so that I could try to improve upon the UX of SEPTA's current website and mobile app.
+    </p>
+  </div>
+
+  <div style="width: 100%; display: flex; justify-content: center; padding: 5px;">
+    <a href="https://github.com/nickorlow">[ See more projects on GitHub ]</a>
+  </div>
+</div>
