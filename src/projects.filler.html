@@ -42,9 +42,10 @@
     <a href="https://github.com/nickorlow/squirrel">[ GitHub Repo ]</a>
     <p>
       SQUIRREL stands for SQL Query Util-Izing Rust's Reliable and Efficient Logic. It is a SQL database 
-      that I am writing in Rust. Currently, it can parse CREATE TABLE commands, and works with the 
-      data types varchar and int. I plan to implement basic CRUD operations, then add JOINs, and then 
-      try to make it wire-compatible with Postgres.
+      that I am writing in Rust. Currently, it can create tables, insert data into tables, and select all 
+      data from a given table. The biggest challenge so far has been writing the parser. My next steps are 
+      to add WHERE clauses to SELECT statements, allow column filtering in SELECT statements, and add DELETE
+      statements. 
     </p>
   </div>
 
