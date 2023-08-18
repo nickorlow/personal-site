@@ -1,0 +1,65 @@
+<h1>Side Project Log 8/8/2023</h1>
+<p>This side project log covers work done from 7/12/2023 - 8/8/2023</p>
+
+<h2 id="squirrel">SQUIRREL</h2>
+<p>
+  SQUIRREL has been updated to work with INSERT INTO and SELECT queries. I also refactored much of the codebase to do error handling more elegantly and to make the parser
+  more extensible. Here's a screenshot of table creation, data insertion, and data selection: 
+</p>
+
+<p>
+  The biggest challenge of this part was working on the parser which has now been written three times. The approaches to the parsing were:
+</p>
+
+<ol>
+  <li>
+    <b>Stepping through whitespace:</b> <p>This was my initial and naive approach to the problem. I split the input string by its whitespace
+    and then queried values by referencing their indexes in the split string. </p>
+  </li>
+  <li>
+    <b>Regex:</b> <p>This approach was cleaner than the first and led to a small parser, however it required an external dependency (which I'm 
+    trying to minimize), and would make it hard to add additional features to commands later down the line.</p>
+  </li>
+  <li>
+    <b>Finite state machine:</b> <p>This solution was more verbose than the others, however it allows for easier development. This method works 
+    by splitting the query string into tokens. Tokens are the smallest piece of data that a parser recognizes. SQUIRREL gets them by splitting
+    the input by delimiters and using the split list as tokens (excluding whitespace) SQUIRREL recognizes the following characters as delimiters: 
+    </p>
+
+    <code>
+      ' ', ',', ';', '(', ')'
+    </code>
+    
+    <p>
+      This means that the string "INSERT INTO test (id) VALUES (12);" would be parsed into the list: "INSERT", "INTO", "test", "(", "id", etc..
+    </p>
+
+    <p>
+      Once we have our list of tokens, we iterate through them starting at a default state and perform a certain task for the given state, which 
+      usually includes switching to another state. We do this until we reach the end state. 
+    </p>
+
+    <p>
+      For example, with the above insert statement, we would start in the IntoKeyword state which would ensure that "INTO" is the current token. 
+      We would then transition to the TableName state which would read the table name and store it in the ParsedCommand struct we're returning. We 
+      would then move to the ColumnListBegin state which would look for an opening parenthesis, and switch the state to ColumnName. This process
+      continues with the other parts of the query until the Semicolon state is reached which checks that the statement ends with a semicolon, then 
+      returns the ParsedCommand struct. 
+    </p>
+  </li>
+</ol>
+
+<p>
+  Next steps for this are to add column selection to SELECT statements and add WHERE clauses to SELECT statements.
+</p>
+
+<h2 id="olney">Olney</h2>
+<p>
+  I added a feature to the Olney API which scans the <a href="https://github.com/SimplifyJobs/Summer2024-Internships">pittcsc (now Simplify) summer internships Github repo</a> 
+  and parses the data into JSON format. I parsed the markdown file they have uisng regex which was relatively simple. There were some issues during development due to the 
+  changing structure of the markdown file. These issues are being fixed on a rolling basis. I expect the changes to slowdown now that the transition from pittcsc to Simplify
+  is complete. You can access the JSON at <a href="https://olney.nickorlow.com/jobs">olney.nickorlow.com/jobs</a>.
+</p>
+
+<hr>
+<p><strong>These projects had minimal/no work done on them:</strong> NWS, RingGold</p>

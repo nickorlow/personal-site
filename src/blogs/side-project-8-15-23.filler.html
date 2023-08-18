@@ -1,0 +1,56 @@
+<h1>Side Project Log 8/15/2023</h1>
+<p>This side project log covers work done from 8/8/2023 - 8/15/2023</p>
+
+<h2 id="olney">Olney</h2>
+<p>
+  I added a frontend to Olney and added a feature where it can automatically keep track of your job applications
+  by monitoring your email.
+</p>
+
+<h3>Frontend</h3>
+<p>
+  The frontend was made with Svelte. I chose not to use any UI/CSS libraries as I wanted to keep the number of 
+  dependencies low. This was another good opportunity to learn about Svelte. 
+</p>
+
+<h3>Automatic Tracking via E-Mail</h3>
+<p>
+  This is the killer feature that I initially set out to build Olney for. This works by having the user forward their
+  E-Mail to an instance of Olney. To receive E-Mail, Olney uses <a href="https://inbucket.org">Inbucket</a>, a mailserver
+  easily hostable within Docker. It listens on a websocket for incoming mail. Whenever a new mail message is received, 
+  Olney uses the OpenAI API to get a summary of the email in the following format:
+</p>
+
+<code>
+{
+  isRecruiting: bool, // is the message about recruiting?
+  recruitingInfo: null | {
+     location: string, // Location in City, Providence/State, Country format
+     company: string, // Casual name of company e.g: Google, Cisco, Apple
+     position: string, // Name of job position
+     type: "assessment" | "interview" | "offer" | "rejection" | "applied" // What the message is discussing
+     dateTime: string, // DateTime communication rec'd OR DateTime that is being discussed (i.e. interview date confirmation)
+     name: string // Name of event, giving more detail to type
+ } // null if message is not about recruiting, fill with values if it is
+}
+</code>
+
+<p>
+  Olney then takes some details from this data, namely: company, position, and location and then uses the OpenAI API to generate
+  an <a href="https://www.pinecone.io/learn/vector-embeddings/">embedding</a>. We then query the closest match out of the job applications
+  in the database (with <a href="https://github.com/pgvector/pgvector">pgvector</a>). Once we have the job application, we add 
+  the event to the database, using the job application's id as a fkey.
+</p>
+
+<p>
+  Embeddings was chosen as the lookup method that way we don't have to worry about data being parsed out of the email being an exact
+  match for what the user inputted. This also allows the lookup to work even when certain things such as location are missing from the 
+  email. 
+</p> 
+
+<p>
+  Olney should be open-sourced/released within the next week or two.
+</p>
+
+<hr>
+<p><strong>These projects had minimal/no work done on them:</strong> NWS, RingGold, SQUIRREL</p>
