@@ -21,7 +21,7 @@
   Olney uses the OpenAI API to get a summary of the email in the following format:
 </p>
 
-<code>
+<pre><code class="language-json">
 {
   isRecruiting: bool, // is the message about recruiting?
   recruitingInfo: null | {
@@ -33,7 +33,7 @@
      name: string // Name of event, giving more detail to type
  } // null if message is not about recruiting, fill with values if it is
 }
-</code>
+</code></pre>
 
 <p>
   Olney then takes some details from this data, namely: company, position, and location and then uses the OpenAI API to generate
@@ -54,3 +54,7 @@
 
 <hr>
 <p><strong>These projects had minimal/no work done on them:</strong> NWS, RingGold, SQUIRREL</p>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
