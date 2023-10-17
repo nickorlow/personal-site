@@ -1,8 +1,8 @@
-FROM ghcr.io/nickorlow/anthracite:main
+FROM ubuntu as build-env
 
 WORKDIR /site
-
 COPY . .
-
 RUN /bin/bash compile.sh
-RUN cp -r ./out/* /www/
+
+FROM ghcr.io/nickorlow/anthracite:main
+COPY --from=build-env ./out/ /www/
