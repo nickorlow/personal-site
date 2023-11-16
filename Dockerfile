@@ -1,8 +1,8 @@
-FROM nginx:stable
+FROM ubuntu as build-env
 
 WORKDIR /site
-
 COPY . .
-
 RUN /bin/bash compile.sh
-RUN cp -r ./out/* /usr/share/nginx/html
+
+FROM ghcr.io/nickorlow/anthracite:0.2.1
+COPY --from=build-env /site/out/ /www/
