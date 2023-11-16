@@ -1,0 +1,111 @@
+<head>
+  <title>Nicholas Orlowsky</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <nav>
+    <a href="/">[ Home ]</a>
+    <a href="/blog.html">[ Blog ]</a>
+    <a href="/projects.html">[ Projects ]</a>
+    <a href="/extra.html">[ Extra ]</a>
+    <hr/>
+  </nav>
+
+  <h1>NWS Incident Postmortem 11/08/2023</h1>
+
+<p>
+  On November 8th, 2023 at approximately 09:47 UTC, NWS suffered
+  a complete outage. This outage resulted in the downtime of all 
+  services hosted on NWS and the downtime of the NWS Management
+  Engine and the NWS dashboard.
+</p>
+
+<p>
+  The incident lasted 28 minutes after which it was automatically
+  resolved and all services were restored. This is NWS' first
+  outage event of 2023.
+</p>
+
+<h2>Cause</h2>
+<p>
+  NWS utilizes several tactics to ensure uptime. A component of
+  this is load balancing and failover. This service is currently
+  provided by Cloudflare at the DNS level. Cloudflare sends
+  health check requests to NWS servers at specified intervals. If 
+  it detects that one of the servers is down, it will remove the
+  A record from entry.nws.nickorlow.com for that server (this domain
+  is where all services on NWS direct their traffic via a 
+  CNAME). 
+</p>
+
+<p>
+  At around 09:47 UTC, Cloudflare detected that our servers in 
+  Texas (Austin and Hill Country) were down. It did not detect an 
+  error, but rather an HTTP timeout. This is an indication that the
+  server has lost network connectivity. When it detected that the
+  servers were down, it removed their A records from the 
+  entry.nws.nickorlow.com domains. Since NWS' Pennsylvania servers
+  have been undergoing maintenance since August 2023, this left no 
+  servers able to serve requests routed to entry.nws.nickorlow.com,
+  resulting in the outage.
+</p>
+
+<p>
+  NWS utilizes UptimeRobot for monitoring the uptime statistics of
+  services on NWS and NWS servers. This is the source of the 
+  statistics shown on the NWS status page. 
+</p>
+
+<p>
+  UptimeRobot did not detect either of the Texas NWS servers as being
+  offline for the duration of the outage. This is odd, as UptimeRobot
+  and Cloudflare did not agree on the status of NWS servers. Logs
+  on NWS servers showed that requests from UptimeRobot were being
+  served while no requests from Cloudflare were shown in the logs. 
+</p>
+
+<p>
+  No firewall rules existed that could have blocked this traffic
+  for either of the NWS servers. There was no other configuration
+  found that would have blocked these requests. As these servers
+  are on different networks inside different buildings in different
+  parts of Texas, their networking equipment is entirely separate.
+  This rules out any hardware failure of networking equipment owned
+  by NWS. This leads us to believe that the issue may have been
+  caused due to an internet traffic anomaly, although we are currently
+  unable to confirm that this is the cause of the issue.
+</p>
+
+<p>
+  This is being actively investigated to find a more concrete root
+  cause. This postmortem will be updated if any new information is 
+  found.
+</p>
+
+<p>
+  A similar event occurred on November 12th, 2023 lasting for 2 seconds.
+</p>
+
+<h2>Fix</h2>
+<p>
+  The common factor between both of these servers is that they both use
+  Spectrum for their ISP and that they are located near Austin, Texas.
+  The Pennsylvania server maintenance will be expedited so that we have 
+  servers online that operate with no commonalities.
+</p>
+
+<p>
+  NWS will also investigate other methods of failover and load 
+  balancing. 
+</p>
+
+<p>Last updated on November 16th, 2023</p>
+
+  <footer>
+    <hr />
+    <p style="margin-bottom: 0px;">Copyright &#169; Nicholas Orlowsky 2023</p>
+    <p style="margin-top: 0px; margin-bottom: 0px;">Hosting provided by <a href="https://nws.nickorlow.com">NWS</a></p>
+    <p style="margin-top: 0px;">Powered by <a href="https://github.com/nickorlow/anthracite">Anthracite Web Server</a></p>
+  </footer>
+</body>
