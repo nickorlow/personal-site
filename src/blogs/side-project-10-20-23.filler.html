@@ -1,0 +1,99 @@
+<h1>Side Project Log 10/20/2023</h1>
+<p>This side project log covers work done from 8/15/2023 - 10/20/2023</p>
+
+<h2 id="anthracite">Anthracite</h2>
+<a href="https://github.com/nickorlow/anthracite">[ GitHub Repo ]</a>
+<p>
+  Anthracite is a web server written in C++. The site you're reading this on 
+  right now is hosted on Anthracite. I wrote it to deepen my knowledge of C++ and networking protocols. My 
+  main focus of Anthracite is performance. While developing anthracite,
+  I have been exploring different optimization techniques and benchmarking
+  Anthracite against popular web servers such as NGINX and Apache. 
+  Anthracite supports HTTP/1.1 and only supports GET requests to request 
+  files stored on a server. 
+</p>
+
+<p>
+  Anthracite currently performs on par with NGINX and Apache when making
+  1000 requests for a 50MB file using 100 threads in a Docker container.
+  To achieve this performance, I used memory profilers to find
+  out what caused large or repeated memory copies to occur. I then updated
+  those sections of code to remove or minimize these copies. I also 
+  made it so that Anthracite caches all files it can serve in memory. This
+  avoids unnecessary and costly disk reads. The implementation of this is 
+  subpar, as it requires that the server be restarted whenever the files 
+  it is serving are changed for the updates to be detected by Anthracite.
+</p>
+
+<p>
+  I intend to make further performance improvements, specifically in the request 
+  parser. I also plan to implement HTTP/2.0.
+</p>
+
+<h2 id="yacemu">Yet Another Chip Eight Emulator (yacemu)</h2>
+<a href="https://github.com/nickorlow/yacemu">[ GitHub Repo ]</a>
+<p>
+  YACEMU is an interpreter for the CHIP-8 instruction set written in C. My main 
+  goal when writing it was to gain more insight into how emulation works. I had
+  previous experience with this from when I worked on an emulator for a slimmed-down 
+  version of X86 called <a href="https://web.cse.ohio-state.edu/~reeves.92/CSE2421sp13/PracticeProblemsY86.pdf">Y86</a>. 
+  So far, I've been able to get most instructions working. I need to work on adding
+  input support so that users can interact with programs running in yacemu. It has
+  been fairly uncomplicated and easy to write thus far. After I complete it, I would
+  like to work on an emulator for a real device such as the GameBoy (This might be 
+  biting off more than I can chew).
+</p>
+
+<h2 id="nick-vim">Nick VIM</h2>
+<p>
+  Over the summer while I was interning, I began using VIM as my primary
+  text editor. I used a preconfigured version of it (<a href="https://nvchad.com/">NvChad</a>) to save time, as 
+  setting everything up can take a while. After using it for a few months, I began 
+  making my own configuration for VIM, taking what I liked from NvChad and leaving
+  behind the parts that I didn't like as much.
+</p>
+
+<img src="/blog-images/NickVIM_Screenshot.png" alt="Screenshot of an HTML file open for editing in NickVIM"/>
+
+<p>
+  One important part of Nick VIM was ensuring that it was portable between different
+  machines. I wanted the machine to have as few dependencies as possible so that I 
+  could get NickVIM set up on any computer in a couple of minutes. This will be especially 
+  useful when working on my School's lab machines and when switching to new computers
+  in the future. I achieved this by dockerizing Nick VIM. This is based on what one of
+  my co-workers does with their VIM setup. The Docker container contains
+  all the dependencies for each language server. Whenever you edit a file with Nick Vim, 
+  the following script runs:
+</p>
+
+<code lang="bash">
+echo Starting container...
+cur_dir=`pwd`
+container_name=${cur_dir////$'_'}
+container_name="${container_name:1}_$RANDOM"
+docker run --name $container_name --network host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --mount type=bind,source="$(pwd)",target=/work -d nick-vim &> /dev/null
+
+echo Execing into container...
+docker exec -w /work -it $container_name bash 
+
+echo Stopping container in background...
+docker stop $container_name &> /dev/null &
+</code>
+
+<p>
+  This code creates a new container, forwards the host's clipboard to the container, and 
+  mounts the current directory inside the container for editing. 
+</p>
+
+<h2 id="secane">Secane</h2>
+<p><a href="https://www.youtube.com/watch?v=tKRehO7FH_s">[ Video Demo ]</a></p>
+<p>
+  Secane was a simple ChatGPT wrapper that I wrote to practice for the behavioral part of 
+  job interviews. It takes your resume, information about the company, and information about
+  the role you're interviewing for. It also integrates with OpenAI's whisper, allowing you 
+  to simulate talking out your answers. I made it with Next.JS. 
+</p>
+
+<hr/>
+<p><strong>These projects had minimal/no work done on them:</strong> NWS, RingGold, SQUIRREL</p>
+<p><strong>These projects I will no longer be working on:</strong> Olney</p>
