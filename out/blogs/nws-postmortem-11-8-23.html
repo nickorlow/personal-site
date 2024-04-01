@@ -22,7 +22,7 @@
 </p>
 
 <p>
-  The incident lasted 28 minutes after which it was automatically
+  The incident lasted 38 minutes after which it was automatically
   resolved and all services were restored. This is NWS' first
   outage event of 2023.
 </p>
@@ -43,9 +43,9 @@
   At around 09:47 UTC, Cloudflare detected that our servers in 
   Texas (Austin and Hill Country) were down. It did not detect an 
   error, but rather an HTTP timeout. This is an indication that the
-  server has lost network connectivity. When it detected that the
+  server may have lost network connectivity. When Cloudflare detected that the
   servers were down, it removed their A records from the 
-  entry.nws.nickorlow.com domains. Since NWS' Pennsylvania servers
+  entry.nws.nickorlow.com domain. Since NWS Pennsylvania servers
   have been undergoing maintenance since August 2023, this left no 
   servers able to serve requests routed to entry.nws.nickorlow.com,
   resulting in the outage.
@@ -66,12 +66,12 @@
 </p>
 
 <p>
-  No firewall rules existed that could have blocked this traffic
+  No firewall rules existed that could have blocked the healthcheck traffic from Cloudflare
   for either of the NWS servers. There was no other configuration
   found that would have blocked these requests. As these servers
   are on different networks inside different buildings in different
   parts of Texas, their networking equipment is entirely separate.
-  This rules out any hardware failure of networking equipment owned
+  This rules out any failure of networking equipment owned
   by NWS. This leads us to believe that the issue may have been
   caused due to an internet traffic anomaly, although we are currently
   unable to confirm that this is the cause of the issue.

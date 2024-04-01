@@ -16,25 +16,25 @@
 <p>Thanks to Arpan Dhatt for doing most of the work on this (his blog here: <a href="https://arpan.one/posts/messing-with-gradescope/">https://arpan.one/posts/messing-with-gradescope/</a>)</p>
 <p>At the end, he made this comment:</p>
 <blockquote>
-<p>And so, that&#39;s the end of this post. To whom it may concern, don&#39;t try doing your C assignment in C# (you know who you are).</p>
+<p>And so, that{{ body_area }}#39;s the end of this post. To whom it may concern, don{{ body_area }}#39;t try doing your C assignment in C# (you know who you are).</p>
 </blockquote>
-<p>The reason for this comment (besides the fact that I talk about C# a lot) is due to the fact that C# requires a runtime to be installed for it to work. This is because C# does not compile to native bytecode but rather compiles to an intermediary language (dubbed CIL by Microsoft) and is then translated &#39;Just In Time&#39; by the runtime. </p>
-<p>This makes running assignments in a docker container where the runtime is not already installed considerably hard. One option we have is that we could just include the runtime in our submission. Sounds easy, right? Well it would be non-trivial to do but due to the fact that the .NET runtime is very large, I wouldn&#39;t consider this a good idea (Not to mention it&#39;s super boring). </p>
-<p>The better solution is to use .NET&#39;s (experimental) AOT compilation feature (formerly called CoreRT). C# has had a number of attempts at an AOT compiler such as :</p>
+<p>The reason for this comment (besides the fact that I talk about C# a lot) is due to the fact that C# requires a runtime to be installed for it to work. This is because C# does not compile to native bytecode but rather compiles to an intermediary language (dubbed CIL by Microsoft) and is then translated {{ body_area }}#39;Just In Time{{ body_area }}#39; by the runtime. </p>
+<p>This makes running assignments in a docker container where the runtime is not already installed considerably hard. One option we have is that we could just include the runtime in our submission. Sounds easy, right? Well it would be non-trivial to do but due to the fact that the .NET runtime is very large, I wouldn{{ body_area }}#39;t consider this a good idea (Not to mention it{{ body_area }}#39;s super boring). </p>
+<p>The better solution is to use .NET{{ body_area }}#39;s (experimental) AOT compilation feature (formerly called CoreRT). C# has had a number of attempts at an AOT compiler such as :</p>
 <ul>
 <li><a href="https://www.mono-project.com/docs/advanced/aot/">AOT</a> by Mono</li>
 <li>LLD2CPP built by Unity</li>
 <li><a href="https://docs.microsoft.com/en-us/dotnet/core/deploying/ready-to-run">Ready2Run</a> by Microsoft</li>
 </ul>
-<p>We&#39;ll be using the official Ready2Run AOT compilation built by Microsoft. In order to use it, all you have to do is add the following to your <code>nuget.config</code>:</p>
-<pre><code class="lang-xml">&lt;<span class="hljs-keyword">add</span> key=<span class="hljs-string">"nuget.org"</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"https://api.nuget.org/v3/index.json"</span> protocolVersion=<span class="hljs-string">"3"</span> /&gt;
+<p>We{{ body_area }}#39;ll be using the official Ready2Run AOT compilation built by Microsoft. In order to use it, all you have to do is add the following to your <code>nuget.config</code>:</p>
+<pre><code class="lang-xml">{{ body_area }}lt;<span class="hljs-keyword">add</span> key=<span class="hljs-string">"nuget.org"</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"https://api.nuget.org/v3/index.json"</span> protocolVersion=<span class="hljs-string">"3"</span> /{{ body_area }}gt;
 </code></pre>
-<p>and then install the package: <code>Microsoft.DotNet.ILCompiler</code>. After doing that if you run the command: <code>dotnet publish -r [Runtime] -c [Config]</code> and after waiting a considerable amount of time, you&#39;ll have a full-fledged C# application compiled directly to your target runtime&#39;s bytecode!</p>
+<p>and then install the package: <code>Microsoft.DotNet.ILCompiler</code>. After doing that if you run the command: <code>dotnet publish -r [Runtime] -c [Config]</code> and after waiting a considerable amount of time, you{{ body_area }}#39;ll have a full-fledged C# application compiled directly to your target runtime{{ body_area }}#39;s bytecode!</p>
 <p>Compiling my simple Hello, Wold test to linux-x64 (<code>dotnet publish -r linux-x64 -c Release</code>) and adding it to my project files should let me run it using the same method Arpan used in his blog.</p>
 <p>After doing that, we can follow the instructions followed by Arpan and viola! C# runs on Gradescope!</p>
-<p>I don&#39;t recommend this but it was fun to do and I needed stuff to write in a blog. </p>
+<p>I don{{ body_area }}#39;t recommend this but it was fun to do and I needed stuff to write in a blog. </p>
 <h2 id="other-interesting-low-level-c-net-features">Other Interesting (Low Level) C#/.NET Features</h2>
-<p>C# actually has many lower level features people don&#39;t expect it to have. Some of these include pointers and direct memory management. Pointers can be enabled by encasing your code in an unsafe code block.</p>
+<p>C# actually has many lower level features people don{{ body_area }}#39;t expect it to have. Some of these include pointers and direct memory management. Pointers can be enabled by encasing your code in an unsafe code block.</p>
 <p>Example (Written by <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code">Microsoft</a>)</p>
 <pre><code class="lang-csharp">
 <span class="hljs-comment">// Normal pointer to an object.</span>
@@ -43,7 +43,7 @@
 unsafe
 {
     <span class="hljs-comment">// Must pin object on heap so that it doesn't move while using interior pointers.</span>
-    fixed (<span class="hljs-keyword">int</span>* p = &amp;a[<span class="hljs-number">0</span>])
+    fixed (<span class="hljs-keyword">int</span>* p = {{ body_area }}amp;a[<span class="hljs-number">0</span>])
     {
         <span class="hljs-comment">// p is pinned as well as object, so create another pointer to show incrementing it.</span>
         <span class="hljs-keyword">int</span>* p2 = p;

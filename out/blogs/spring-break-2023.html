@@ -13,62 +13,62 @@
   </nav>
 
   <h1>Spring Break 2023</h1>
-<p>It&#39;s Spring Break, and that means I finally have time to spend all day working on side projects without having to worry about school.</p>
+<p>It{{ body_area }}#39;s Spring Break, and that means I finally have time to spend all day working on side projects without having to worry about school.</p>
 <p>I figured I should write out the side projects I plan to work on over the break</p>
 <h2 id="ringgold">RingGold</h2>
 <p><code>Rust, Swift, PostgreSQL</code></p>
-<p>Last week, me and my cousin wanted to try out Apple&#39;s fitness competition feature that works with Apple Watch. It works
+<p>Last week, me and my cousin wanted to try out Apple{{ body_area }}#39;s fitness competition feature that works with Apple Watch. It works
 by giving you 1 point for every percent you complete of your move, exercise, and stand goals with a point cap of 600
-per day. The issue with it was that it didn&#39;t work at all, not syncing on time if at all. I want to build a clone of it
+per day. The issue with it was that it didn{{ body_area }}#39;t work at all, not syncing on time if at all. I want to build a clone of it
 with some additional features such as:</p>
 <ul>
-<li><p><strong>Notifications:</strong> I didn&#39;t like how it was possible to workout and gain a bunch of points and just completely blindside your opponent. Hopefully this would encourage users to workout even more.</p>
+<li><p><strong>Notifications:</strong> I didn{{ body_area }}#39;t like how it was possible to workout and gain a bunch of points and just completely blindside your opponent. Hopefully this would encourage users to workout even more.</p>
 </li>
-<li><p><strong>Widget/Watch Complication:</strong> Similar to the above, adding a homescreen widget or a watch complication would make it easier to keep up with your competitor&#39;s progress. </p>
+<li><p><strong>Widget/Watch Complication:</strong> Similar to the above, adding a homescreen widget or a watch complication would make it easier to keep up with your competitor{{ body_area }}#39;s progress. </p>
 </li>
-<li><p><strong>Custom Competitions:</strong> I think it&#39;d be nice to have competitions with custom rules and lengths so that you&#39;re not stuck with only one setting. Settings could include custom duration and custom caps on points.</p>
+<li><p><strong>Custom Competitions:</strong> I think it{{ body_area }}#39;d be nice to have competitions with custom rules and lengths so that you{{ body_area }}#39;re not stuck with only one setting. Settings could include custom duration and custom caps on points.</p>
 </li>
 </ul>
-<p>I&#39;m building the web API for it in Rust and the mobile app in Swift. I chose these languages to gain more exposure to them, also
+<p>I{{ body_area }}#39;m building the web API for it in Rust and the mobile app in Swift. I chose these languages to gain more exposure to them, also
 Swift was a good choice since the app is going to be platform specific to iOS due to its need to integrate with Apple Watch. 
 <em>(this is named after New Ringgold, PA)</em></p>
 <h2 id="nws-container-deployment-service">NWS Container Deployment Service</h2>
 <p><code>C#, Rancher</code></p>
-<p>I&#39;ve created my own hosting/cloud service called <a href="https://nws.nickorlow.com">Nick Web Services</a>. It currently allows people to deploy
+<p>I{{ body_area }}#39;ve created my own hosting/cloud service called <a href="https://nws.nickorlow.com">Nick Web Services</a>. It currently allows people to deploy
 dockerized applications on my geo-distributed k8s clusters running on Dell Poweredge servers. In order to actually deploy this, I 
-had to manually create the Kubernetes manifest files and then ssh into each individual server and apply them. I&#39;ve setup 
+had to manually create the Kubernetes manifest files and then ssh into each individual server and apply them. I{{ body_area }}#39;ve setup 
 Rancher Fleet to automate this process by pulling the manifest from a git repo (this is something called gitops). I also
 wrote an API to generate the manifest files and then upload them to a git repo. I have a video demo of this working that 
 you can watch <a href="https://youtu.be/WHdXWMFHuqA">here</a>.</p>
-<p>Currently, the service works for deployment but only if you don&#39;t want to use SSL or you use Cloudflare&#39;s flexible SSL
+<p>Currently, the service works for deployment but only if you don{{ body_area }}#39;t want to use SSL or you use Cloudflare{{ body_area }}#39;s flexible SSL
 technology. I wrote a separate blog post <a href="http://nickorlow.com/blog/ssl-in-nws-cds">here</a> about the challenges of doing this and how I plan on implementing it. 
-I&#39;d like to complete part of this implementation during the break.</p>
+I{{ body_area }}#39;d like to complete part of this implementation during the break.</p>
 <h2 id="verifiedbot">VerifiedBot</h2>
 <p><code>JavaScript, Rust</code></p>
-<p>This project isn&#39;t a personal project, as a lot of it was built by my friends <a href="https://arpan.one">Arpan</a> and <a href="https://benaubin.com/">Ben</a>.
+<p>This project isn{{ body_area }}#39;t a personal project, as a lot of it was built by my friends <a href="https://arpan.one">Arpan</a> and <a href="https://benaubin.com/">Ben</a>.
 A little over a year ago, we wanted to make a Discord bot to verify that people on some Discord servers we ran 
 went to the University of Texas. Initially, it worked by verifying you had a utexas.edu email address and then verifying
 some additional information via LDAP. A few months ago Ben found out that using the SaaS survey software that the university uses
-(qualtrics), we could have users verify themselves by using the university&#39;s SSO system. This works because qualtrics can send
-data to a webhook when a survey is complete, and it can also require signing in with the university&#39;s SSO before filling out a survey.
+(qualtrics), we could have users verify themselves by using the university{{ body_area }}#39;s SSO system. This works because qualtrics can send
+data to a webhook when a survey is complete, and it can also require signing in with the university{{ body_area }}#39;s SSO before filling out a survey.
 It required that I write a <a href="https://github.com/Verified-Bot/aes-gcm-siv-wasm">wasm wrapper for an encryption library</a>. I wrote almost all the code for this function last year, but 
-due to a bug in qualtrics, it wasn&#39;t working properly. It seems that this bug has been fixed and we can start rolling it out.</p>
+due to a bug in qualtrics, it wasn{{ body_area }}#39;t working properly. It seems that this bug has been fixed and we can start rolling it out.</p>
 <h2 id="personal-website-facelift">Personal Website Facelift</h2>
 <p><code>Typescript, React</code></p>
 <p>My personal website (this one) is a little overdue for some design updates. My main focus will be making it more mobile
-friendly. Last year, I made some improvements to make it usable on mobile but it still doesn&#39;t feel quite right. I also
+friendly. Last year, I made some improvements to make it usable on mobile but it still doesn{{ body_area }}#39;t feel quite right. I also
 think that it has some information overload in some areas such as the projects section. I think that to mitigate this I 
 might just have a small summary of each project and then you can click into each to learn more about it, similar to my 
-friend <a href="https://raulhigareda.com">Raul&#39;s Website</a>. I&#39;m also considering a move to tab-based navigation so that I can have
-more information in each section. Further down the line, I think I might re-write it using Svelte as I&#39;m seeing it being used more and more
+friend <a href="https://raulhigareda.com">Raul{{ body_area }}#39;s Website</a>. I{{ body_area }}#39;m also considering a move to tab-based navigation so that I can have
+more information in each section. Further down the line, I think I might re-write it using Svelte as I{{ body_area }}#39;m seeing it being used more and more
 and would like to get some exposure to it.</p>
 <h2 id="mahantongo">Mahantongo</h2>
 <p><code>Rust, PostgreSQL</code></p>
-<p>I&#39;m one of the members of the Community Team that runs some UT Computer Science community Discord servers.
+<p>I{{ body_area }}#39;m one of the members of the Community Team that runs some UT Computer Science community Discord servers.
 Currently, a Discord bot called Carlbot provides us a star-board, which is a specific channel where messages that 5 or more people
-react to with a star emoji get posted. It&#39;s supposed to be a collection of the funniest and best messages sent on the server.
-One of the things our server members have wanted is the addition of more &#39;*-board&#39; channels where you can create multiple star-board
-like channels but with custom emojis. I&#39;m writing it in Rust and I&#39;m just hoping to use this project to get more acquainted with the language.</p>
+react to with a star emoji get posted. It{{ body_area }}#39;s supposed to be a collection of the funniest and best messages sent on the server.
+One of the things our server members have wanted is the addition of more {{ body_area }}#39;*-board{{ body_area }}#39; channels where you can create multiple star-board
+like channels but with custom emojis. I{{ body_area }}#39;m writing it in Rust and I{{ body_area }}#39;m just hoping to use this project to get more acquainted with the language.</p>
 
   <footer>
     <hr />
