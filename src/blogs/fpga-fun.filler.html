@@ -80,8 +80,10 @@ described in the above linked datasheet, but they're not relevant to getting
 the general idea of SPI (Serial Parallel Interface). 
 </p>
 
-<img src="/blog-images/the-bomb-text.png">
-<img src="/blog-images/the-bomb-graphical.jpg">
+<div style="width: 100%; display: flex; justify-content: center; flex-flow: column; align-items: center;">
+<img src="/blog-images/the-bomb-text.png" style="max-width: 500px; margin: 10px;">
+<img src="/blog-images/the-bomb-graphical.jpg" style="max-width: 500px; margin: 10px;">
+</div>
 
 <p> 
 I implemented a serial driver with a little demo screen (see above image), and 
@@ -104,7 +106,7 @@ never nor never intend to build a bomb)
 
 <p>
 With my display driver finally done, I decided to try to hook my CHIP-8 code up 
-to it and run it on the FPGA. I was really exited to actually run something on 
+to it and run it on the FPGA. I was really excited to actually run something on 
 hardware. Then the build time started climbing and Intel Quartus crashed. I 
 knew that this was a sign that I messed up. Through other projects in the class 
 I learned a bit about Verilog and HDL best practices and knew that my giant 
@@ -123,10 +125,10 @@ to do and then move it into the next state. This design actually made logic
 very simple as I was able to combine the functionality for a lot of instructions.
 For example, a register to register load and an immediate to register load could use the 
 same writeback logic, as by that stage they would be loading bits into a register.
-I didn't make it pipelined or do any fancy optimizatoins, mostly due to the fact 
+I didn't make it pipelined or do any fancy optimizations, mostly due to the fact 
 that the CHIP-8 is supposed to run at ~480 Hz. It also wasn't in the scope of 
-this project, as this was more about learning about how different parts of a 
-computer interact and how real-world ISA implementaitons are done. 
+this project, as this was more about learning how different parts of a 
+computer interact and how real-world ISA implementations are done. 
 </p>
 
 <p> 
@@ -143,13 +145,20 @@ was outputting high, it would know that the pressed key was at coordinate
 (1,1) (i.e. the first key).
 </p>
 
-<video controls>
+<video controls style="max-width: 500px;">
   <source src="/blog-images/fpga-tetris.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video> 
 
 <p> 
-And after doing all of that, we can play Tetris
+And after doing all of that, we can play Tetris! 
+</p>
+
+<p>
+The source code for 
+yayacemu is hosted <a href="https://github.com/nickorlow/yayacemu">here</a>.
+The CHIP-8 emulator I wrote in C was called yacemu (Yet Another Chip-8 Emulator), 
+and the naming for this is yayacemu (Yet Another Yet Another Chip-8 Emulator).
 </p>
 
 <h2>The GameBoy</h2>
@@ -164,7 +173,7 @@ draw the background layer to the display, and run a little bit of the Tetris
 ROM (not enough to show anything yet).
 </p>
 
-<video controls>
+<video controls style="max-width: 500px;">
   <source src="/blog-images/gameboy-boot.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video> 
