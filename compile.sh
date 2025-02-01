@@ -23,6 +23,7 @@ process_filler_file() {
 
     # Read the contents of the filler file
     filler_content=$(<"$filler_file")
+    filler_content=$(echo "$filler_content" | sed "s/\&/\\\&/g")
 
     # Replace "{{ body_area }}" in the template with filler content
     modified_content="${template_content/\{\{ body_area \}\}/$filler_content}"
