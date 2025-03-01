@@ -2,55 +2,108 @@
   <h1 style="margin-bottom: 0px;">Projects</h1>
 
   <div>
+    <h2>Project Warminster: yayacemu, yacemu, yagbemu</h2>
+    <p><i>C, C++, and SystemVerilog</i></p>
+    <p>
+    <a href="https://git.nickorlow.com/nickorlow/yacemu">[ Git Repo: yacemu ]</a>
+    <a href="https://git.nickorlow.com/nickorlow/yayacemu">[ Git Repo: yayacemu ]</a>
+    </p>
+    <p>
+    <a href="https://files.nickorlow.com/videos/warminster/yayacemu_tetris.mp4">[ Tetris Demo: yayacemu ]</a>
+    <a href="https://files.nickorlow.com/videos/warminster/yayacemu_bowling.mp4">[ Bowling Demo: yayacemu ]</a>
+    </p>
+    <p>
+      Project Warminster is a collection of 3 subprojects: 
+      <ul>
+          <li><b>yacemu (Yet Another Chip Eight Emulator):</b> A CHIP-8 emulator written in C</li>  
+          <li><b>yayacemu (Yet Another Yet Another Chip Eight Emulator):</b> A CHIP-8 hardware implementation in SystemVerilog (that works on real hardware)</li>  
+          <li><b>yagbemu (Yet Another Gameboy Emulator):</b> A Gameboy hardware implementation in SystemVerilog (WIP, not public yet)</li>  
+      </ul>
+      This project taught me a lot of practical hands-on things about Computer Architecture. Designing the hardware driver for the ST7920 LED display was 
+      the most challenging part. Debugging hardware adds a lot of complications, you don't get breakpoints or a nice debugger like gdb. Additionally, 
+      interference, faulty wires, timing, and debouncing all throw wrenches into the mix. 
+    </p>
+
+  </div>
+
+  <div>
     <h2>Nick Web Services (NWS)</h2>
     <p><i>C#, Kubernetes, Rancher, and HAProxy</i></p>
     <a href="https://nws.nickorlow.com">[ Project Website ]</a>
     <p>
       Nick Web Services is a cloud infrastructure provider service that I created and run.
       It allows people to deploy containerized versions of their web apps across our multiple
-      servers. It provides geo-distributed high availability by default with no extra configuration
+      points of presence. It provides geo-distributed high availability by default with no extra configuration
       needed from users hosting their webapp with us.
     </p>
     <p>
       Hardware-wise we use old Dell PowerEdge servers running Proxmox. We then have VMs running
-      in Proxmox that run Kubernetes clusters. We have 4 clusters currently: Austin, Hill Country,
-      Schuylkill, and Philadelphia. The deployments are managed through GitOps with Rancher Fleet. 
+      in Proxmox that run Kubernetes clusters. At the peak I had 4 points of presence: Austin, Hill Country,
+      Schuylkill, and Philadelphia. The deployments are managed through GitOps with Rancher Fleet. Unfortunately, 
+      we only have one point of presence at the moment due to a number of factors, however that should 
+      change this fall.
+    </p>
+    <p>
+      NWS maintained 100% uptime for the period from 11/8/2023 to 11/28/2024 (over a year!).
+    </p>
+    <p>
+      The website you're reading this on right now is hosted on NWS!
     </p>
   </div>
   
   <div>
     <h2>Anthracite Web Server</h2>
-    <p><i>C++ &amp; Python</i></p>
+    <p><i>C++, CMake, and Python</i></p>
     <a href="https://git.nickorlow.com/nickorlow/anthracite">[ Git Repo ]</a>
     <p>
-      Anthracite is a simple web server written in C++. It currently supports HTTP/1.0 and HTTP/1.1.
-      The benchmarking tools for Anthracite are written in Python. Anthracite is optimized for performance
-      and rivals the performance of NGINX &amp; Apache in our testing. It uses a thread-per-connection
-      architecture, allowing it to process many requests in paralell. Additionally, it caches all
-      files that it serves in memory to ensure that added latency from disk reads do not slow down requests.
-      Through writing Anthracite, I have learned to use different C++ profilers as well as some general
-      optimization techniques for C++.
+      Anthracite is a web server written for Linux in C++. It currently supports both HTTP/1.0 and HTTP/1.1 and TLS.
+      It heavily uses a dependency injection design pattern to allow for a high degree of customization. 
+      It currently uses an event-loop threading model and uses the epoll() system call to efficiently detect
+      events. Previously, it used a connection per thread model. 
+    </p>
+    <p>
+      Anthracite's HTTP request parser is able to parse roughly 27 million requests per second on my laptop, compared 
+      to Boost's HTTP parser which parsed roughly 1 million per second. I'd imagine a lot of this is due to missing 
+      functionality in Anthracite's HTTP parser, but it's enough to get by! While I haven't run extensive end-to-end 
+      tests on the newest version of Anthracite, in the limited tests I've done during development, it's been able to 
+      handle ~300k RPS on my laptop, a comparable number to NGINX.
+    </p>
+    <p>
+      The website you're reading this on right now is hosted with Anthracite!
     </p>
   </div>
 
   <div>
-    <h2>CavCash</h2>
-    <p><i>C#, Kubernetes, SQL Server, and MongoDB</i></p>
-    <a href="https://cavcash.com">[ Project Website ]</a>
+    <h2>RAZZLE</h2>
+    <p><i>C, ASM, and CMake</i></p>
+    <a href="https://git.nickorlow.com/nickorlow/razzle">[ Git Repo ]</a>
     <p>
-      CavCash was a company that I founded which built a debit-based payment system similar to 
-      PayPal and Venmo. I assembled a 5 person team and took on a technical role in the company,
-      writing most of our backend codebase. Our backend used C#, ASP.NET, Microsoft SQL Server,
-      and MongoDB. Our infrastructure changed throughout the lifetime of the company, initially
-      it was on Microsoft Azure using Azure App Service. We then pivoted to AWS using Elastic
-      Beanstalk. We also ran on Google Cloud Platform using Compute Engine. Finally, we setup our
-      own servers in-house and managed our deployments with Kubernetes.
+        RAZZLE is a monolithic kernel. Currently, it's very limited and I haven't made a lot of progress on it.
+        It's currently single-core but supports preemptive timesharing. It has basic I/O interfaces for ps2, 
+        serial, and vga. It currently has a very limited in-ram filesystem using a proprietary filesystem. 
+        I'm currently working on adding an ATA driver so I can have programs run on RAZZLE without including 
+        them at build-time.
+    </p>
+  </div>
+
+  
+  <div>
+    <h2>Open Source Contributions</h2>
+    <p>
+        I've made various (minor) open source contributions. I'd say the only one worth anything was the cgroups2 support in 
+        nginx-ingress.
     </p>
     <p>
-      We launched in 2021, with the ability to send money between real banks using the ACH network.
-      We ended up processing a few hundred dollars in transaction volume before ultimately shutting
-      down due to a lack of funding. The website is now back up and everything works as it did in 
-      2021, except adding funds from a bank account is not supported.
+      <a href="https://github.com/kubernetes/ingress-nginx/pull/9816">[ kubernetes nginx-ingress: cgroups2 configuration support ]</a>
+    </p>
+    <p>
+      <a href="https://github.com/argoproj/argo-cd/pull/13060">[ argo cd: fix styling issue on dashboard ]</a>
+    </p>
+    <p>
+      <a href="https://github.com/endeavouros-team/endeavouros-i3wm-setup/pull/90">[ endeavouros: update default i3 config to work with numpad keys ]</a>
+    </p>
+    <p>
+      <a href="https://github.com/trivago/hamara/pull/15">[ trivago hamara: documentation update ]</a>
     </p>
   </div>
 
@@ -68,24 +121,23 @@
   </div>
   
   <div>
-    <h2>Olney</h2>
-    <p><i>Rust, Postgres, Svelte, TypeScript, and OpenAI's API</i></p>
-    <a href="https://github.com/nickorlow/olney">[ GitHub Repo ]</a>
+    <h2>CavCash</h2>
+    <p><i>C#, Kubernetes, SQL Server, and MongoDB</i></p>
+    <!--<a href="https://cavcash.com">[ Project Website ]</a>-->
     <p>
-      Olney is a job application tracker that aims to be better than using a <a href="https://trello.com">Trello</a> board or a spreadsheet.
-      It allows users to create jobs and log custom events such as interviews, assessments, and other communication. 
+      CavCash was a company that I founded which built a debit-based payment system similar to 
+      PayPal and Venmo. I assembled a 5 person team and took on a technical role in the company,
+      writing most of our backend codebase. Our backend used C#, ASP.NET, Microsoft SQL Server,
+      and MongoDB. Our infrastructure changed throughout the lifetime of the company, initially
+      it was on Microsoft Azure using Azure App Service. We then pivoted to AWS using Elastic
+      Beanstalk. We also ran on Google Cloud Platform using Compute Engine. Finally, we setup our
+      own servers in-house and managed our deployments with Kubernetes.
     </p>
-  </div>
-
-  <div>
-    <h2>SEPTA Site</h2>
-    <p><i>Svelte, TypeScript</i></p>
-    <a href="https://github.com/nickorlow/septa-site">[ GitHub Repo ]</a>
     <p>
-      SEPTA Site is a website that I created which can get your trip history, SEPTA Key balance, 
-      and ridership statistics for your SEPTA Key. It utilizes SEPTA's new metro wayfinding instead
-      of their current wayfinding. I wrote the project to get a basic introduction to Svelte and 
-      so that I could try to improve upon the UX of SEPTA's current website and mobile app.
+      We launched in 2021, with the ability to send money between real banks using the ACH network.
+      We ended up processing a few hundred dollars in transaction volume before ultimately shutting
+      down due to a lack of funding. <!--The website is now back up and everything works as it did in 
+      2021, except adding funds from a bank account is not supported.-->
     </p>
   </div>
 
