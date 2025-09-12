@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Curve Full Width</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; background: white; }
+  </style>
+</head>
+<body>
+<canvas id="curveCanvas" height="180"></canvas>
+
+<script>
+  const canvas = document.getElementById('curveCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Set canvas width to window width
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+
+    const rightEnd = canvas.width;
+    const flatStart = 0;
+    const flatEnd = 450;
+    const curveStart = flatEnd;
+    const curveControl1 = 475;
+    const curveControl2 = 525;
+    const curvePeak = 550;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Blue stripe (top)
+    ctx.beginPath();
+    ctx.moveTo(flatStart, 90);
+    ctx.lineTo(flatEnd, 90);
+    ctx.bezierCurveTo(curveControl1, 90, curveControl2, 30, curvePeak, 30);
+    ctx.lineTo(rightEnd, 30);
+    ctx.lineTo(rightEnd, 60);
+    ctx.lineTo(curvePeak, 60);
+    ctx.bezierCurveTo(curveControl2, 60, curveControl1, 120, flatEnd, 120);
+    ctx.lineTo(flatStart, 120);
+    ctx.closePath();
+    ctx.fillStyle = '#007ac2';
+    ctx.fill();
+
+    // Orange stripe (bottom)
+    ctx.beginPath();
+    ctx.moveTo(flatStart, 120);
+    ctx.lineTo(flatEnd, 120);
+    ctx.bezierCurveTo(curveControl1, 120, curveControl2, 60, curvePeak, 60);
+    ctx.lineTo(rightEnd, 60);
+    ctx.lineTo(rightEnd, 90);
+    ctx.lineTo(curvePeak, 90);
+    ctx.bezierCurveTo(curveControl2, 90, curveControl1, 150, flatEnd, 150);
+    ctx.lineTo(flatStart, 150);
+    ctx.closePath();
+    ctx.fillStyle = '#f15a22';
+    ctx.fill();
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+</script>
+</body>
+</html>

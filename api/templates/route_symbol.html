@@ -1,0 +1,19 @@
+{% macro route_symbol(route) %}
+    {% match route.route_type %}
+        {% when libseptastic::route::RouteType::Trolley | libseptastic::route::RouteType::SubwayElevated %}
+        <div class="metro-container bg-{{ route.id }}">
+                {{ route.id }}
+            </div>
+        {% endwhen %}
+        {% when libseptastic::route::RouteType::RegionalRail %}
+            <div class="rr-container">
+                {{ route.id }}
+            </div>
+        {% endwhen %}
+        {% when libseptastic::route::RouteType::Bus | libseptastic::route::RouteType::TracklessTrolley %}
+            <div class="bus-container">
+                {{ route.id }}
+            </div>
+        {% endwhen %}
+    {% endmatch %}
+{% endmacro %}

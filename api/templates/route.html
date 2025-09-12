@@ -1,0 +1,111 @@
+{%- import "route_symbol.html" as scope -%}
+<style>
+.train-direction-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.train-direction-table th,
+.train-direction-table td {
+  border: 1px solid #000;
+  padding: 4px 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.train-direction-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.highlight-row td,
+.highlight-row th {
+  background-color: #d0ebff !important;
+}
+
+.highlight-col {
+  background-color: #d0ebff !important;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".train-direction-table").forEach((table) => {
+    table.addEventListener("click", (e) => {
+      const cell = e.target.closest("td, th");
+      if (!cell) return;
+
+      // Clear previous highlights
+      table.querySelectorAll("tr").forEach(row => row.classList.remove("highlight-row"));
+      table.querySelectorAll("td, th").forEach(c => c.classList.remove("highlight-col"));
+
+      const row = cell.parentNode;
+      const colIndex = Array.from(cell.parentNode.children).indexOf(cell);
+
+      // If it's the first column (row header)
+      if (cell.cellIndex === 0 && cell.tagName === "TD") {
+        row.classList.add("highlight-row");
+      }
+      // If it's a column header
+      else if (row.parentNode.tagName === "THEAD") {
+        table.querySelectorAll("tr").forEach(r => {
+          const cell = r.children[colIndex];
+          if (cell) cell.classList.add("highlight-col");
+        });
+      }
+      // If it's a center cell
+      else {
+        row.classList.add("highlight-row");
+        table.querySelectorAll("tr").forEach(r => {
+          const cell = r.children[colIndex];
+          if (cell) cell.classList.add("highlight-col");
+        });
+      }
+    });
+  });
+});
+</script>
+
+<div style="background-color: #ff0000; color: #ffffff; padding: 15px; margin-bottom: 15px; margin-top: 15px;">
+   This website is not run by SEPTA. As such, schedules may not be 
+   completely accurate. 
+</div>
+
+<div style="display: flex; align-items: center;">
+    {% call scope::route_symbol(route) %}
+    <h1 style="margin-left: 15px;">{{ route.name }}</h1>
+</div>
+
+{% for timetable in timetables %}
+  <h2>{{ timetable.direction.direction | capitalize }} to {{ timetable.direction.direction_destination }}</h2>
+  <div class="tscroll">
+  <table class="train-direction-table" style="margin-top: 5px;">
+    <thead>
+      <tr>
+        <th>Stop</th>
+        {% for trip_id in timetable.trip_ids %}
+          <th>{{ trip_id }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in timetable.rows %}
+        <tr>
+          <td>{{ row.stop_name }}</td>
+          {% for time in row.times %}
+            <td>
+              {% if let Some(t) = time %}
+                {{ t | format_time }}
+              {% else %}
+                -- 
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endfor %}

@@ -11,3 +11,11 @@ env_logger = "0.11.8"
 log = "0.4.27"
 serde_json = "1.0.140"
 sqlx = { version = "0.8.6", features = [ "runtime-async-std", "postgres" ] }
+libseptastic = { path = "../libseptastic/" }
+askama = "0.14.0"
+actix-files = "0.6.6"
+serde = "1.0.219"
+chrono = "0.4.41"
+chrono-tz = "0.10.4"
+actix-cors = "0.7.1"
+reqwest = { version = "0.12.22", features = [ "json" ] }

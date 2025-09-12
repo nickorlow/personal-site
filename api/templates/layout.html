@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {% if let Some(title) = page_title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>SEPTASTIC</title>
+  {% endif %}
+
+  {% if let Some(desc) = page_desc %}
+  <meta name="{{ desc }}" />
+  {% else %}
+  <meta name="SEPTASTIC" />
+  {% endif %}
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<style>
+    .silverliner-svg {
+            display: block;
+            width: 100%;
+            height: 200px; /* Fixed height matching the viewBox */
+        }
+</style>
+<body>
+    <div class="body">
+  <nav>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <a class="nav-link" href="/">[ Home ]</a>
+            <a class="nav-link" href="/routes">[ Routes ]</a>
+        </div>
+        <div>
+        </div>
+    </div>
+  </nav>
+  <hr/>
+
+  {{ content|safe }}
+
+  <footer>
+    <hr />
+    <div style="display: flex; justify-content: space-between;"> 
+        <div>
+            <p style="margin-bottom: 0px; margin-top:0px;"><b>SEPTASTIC!</b></p>
+            <p style="margin-bottom: 0px;margin-top: 0px;">
+    <small>Copyright &#169; <a href="https://nickorlow.com">Nicholas Orlowsky</a> 2025</small>
+            </p>
+        </div>
+    </div>
+
+  </footer>
+    </div>
+</body>
+</html>

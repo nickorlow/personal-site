@@ -1,0 +1,134 @@
+* {
+  font-family: mono; 
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: left;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.body {
+  background-color: #ffffff; 
+  margin: 10px auto;
+  max-width: 750px;
+  width: 95%;
+}
+
+a {
+  text-decoration: none;
+  color: #114488;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.flag-img {
+    height: 30px;
+}
+
+.nav-link {
+    white-space: nowrap;
+}
+
+.metro-container {
+    font-size: 1.5em;
+    padding: 0.3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    aspect-ratio: 1 / 1;
+    line-height: 1;
+}
+
+.rr-container {
+    background-color: #4c748c;
+    color: #ffffff;
+    font-size: 1.5em;
+    padding: 0.3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    line-height: 1;
+}
+
+.bg-B1, .bg-B2, .bg-B3  {
+    background-color: #FF661C;
+    color: #ffffff;
+}
+
+.bg-L1 {
+    background-color: #009BDE;
+    color: #ffffff;
+}
+
+.bg-M1 {
+    background-color: #552B9D;
+    color: #ffffff;
+}
+
+.bg-D1, .bg-D2 {
+    background-color: #EA4379;
+    color: #ffffff;
+}
+
+.bg-G1 {
+    background-color: #FFD500;
+    color: #000000;
+}
+
+.bg-T1, .bg-T2, .bg-T3, .bg-T4, .bg-T5 {
+    background-color: #6EA516;
+    color: #ffffff;
+}
+
+.bus-container {
+    display: inline-block;
+    padding: 0.2em 0.5em; /* scales with font size */
+    font-size: 1em; /* or inherit */
+    font-weight: bold;
+    border-radius: 9999px; /* full pill shape */
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    width: max-content;
+    line-height: 1;
+}
+.tscroll {
+    width: 100%;
+  overflow: scroll;
+  margin-bottom: 10px;
+}
+
+.tscroll table td:first-child, .tscroll table th:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #ddd;
+ box-shadow: inset 0 0.5px 0 #000000,inset 0 -0.5px 0 #000000,inset 1px 0 0 #000000,inset -1px 0 0 #000000;
+    border-width:0;
+}
+
+.tscroll td, .tscroll th {
+}
